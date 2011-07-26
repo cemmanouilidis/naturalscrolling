@@ -76,12 +76,12 @@ class InstallAndUpdateDataDirectory(DistUtilsExtra.auto.install_auto):
 
 DistUtilsExtra.auto.setup(
     name='naturalscrolling',
-    version='0.3',
+    version='0.1',
     license='GPL-3',
     author='Charalampos Emmanouilidis',
     author_email='charalampos.emmanouilidis@eumorphed.com',
     description='Natural Scrolling for Linux',
-    #long_description='Here a longer description',
+    long_description='Natural Scrolling adds a menu bar item allowing the direction of scrolling to be toggled',
     url='http://www.eumorphed.com/naturalscrolling',
     cmdclass={'install': InstallAndUpdateDataDirectory}
     )

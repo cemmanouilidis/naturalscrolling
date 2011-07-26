@@ -20,7 +20,6 @@ class NaturalscrollingIndicator:
         self.ind = appindicator.Indicator("natural-scrolling-indicator", 'natural-scrolling-status-not-activated', appindicator.CATEGORY_APPLICATION_STATUS)
 
         media_path = "%s/media/" % naturalscrollingconfig.get_data_path()
-        print media_path
         self.ind.set_icon_theme_path (media_path)
         self.ind.set_attention_icon  ("natural-scrolling-status-activated")
         
