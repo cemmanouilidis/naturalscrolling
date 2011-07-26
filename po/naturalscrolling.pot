@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-07-26 09:17+0200\n"
+"POT-Creation-Date: 2011-07-26 09:38+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,7 +18,9 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #. natural scrolling
+#. Code for other initialization actions should be added here.
 #: ../naturalscrolling/NaturalscrollingIndicator.py:38
+#: ../naturalscrolling.desktop.in.h:1
 msgid "Natural Scrolling"
 msgstr ""
 
@@ -40,13 +42,8 @@ msgstr ""
 msgid "Quit Natural Srcolling"
 msgstr ""
 
-#. Code for other initialization actions should be added here.
-#: ../naturalscrolling.desktop.in.h:1
-msgid "Naturalscrolling"
-msgstr ""
-
 #: ../naturalscrolling.desktop.in.h:2
-msgid "Naturalscrolling application"
+msgid "Natural Scrolling application"
 msgstr ""
 
 #: ../naturalscrolling/__init__.py:36
