@@ -1,6 +1,6 @@
 [Desktop Entry]
-_Name=Naturalscrolling
-_Comment=Naturalscrolling application
+_Name=Natural Scrolling
+_Comment=Natural Scrolling application
 Categories=GNOME;Utility;
 Exec=naturalscrolling
 Icon=/usr/share/naturalscrolling/media/naturalscrolling.svg

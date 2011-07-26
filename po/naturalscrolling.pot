@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-07-26 08:54+0200\n"
+"POT-Creation-Date: 2011-07-26 09:17+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,30 +18,30 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #. natural scrolling
-#: ../naturalscrolling/NaturalscrollingIndicator.py:39
+#: ../naturalscrolling/NaturalscrollingIndicator.py:38
 msgid "Natural Scrolling"
 msgstr ""
 
-#: ../naturalscrolling/NaturalscrollingIndicator.py:51
+#: ../naturalscrolling/NaturalscrollingIndicator.py:50
 msgid "Preferences"
 msgstr ""
 
-#: ../naturalscrolling/NaturalscrollingIndicator.py:52
+#: ../naturalscrolling/NaturalscrollingIndicator.py:51
 msgid "Start at login"
 msgstr ""
 
 #. about
-#: ../naturalscrolling/NaturalscrollingIndicator.py:60
+#: ../naturalscrolling/NaturalscrollingIndicator.py:59
 msgid "About..."
 msgstr ""
 
 #. quit
-#: ../naturalscrolling/NaturalscrollingIndicator.py:69
+#: ../naturalscrolling/NaturalscrollingIndicator.py:68
 msgid "Quit Natural Srcolling"
 msgstr ""
 
 #. Code for other initialization actions should be added here.
-#: ../naturalscrolling.desktop.in.h:1 ../data/ui/NaturalscrollingWindow.ui.h:2
+#: ../naturalscrolling.desktop.in.h:1
 msgid "Naturalscrolling"
 msgstr ""
 
@@ -49,49 +49,31 @@ msgstr ""
 msgid "Naturalscrolling application"
 msgstr ""
 
-#: ../naturalscrolling/__init__.py:24
+#: ../naturalscrolling/__init__.py:36
 msgid "Show debug messages (-vv debugs naturalscrolling_lib also)"
 msgstr ""
 
-#: ../data/ui/NaturalscrollingWindow.ui.h:1
-msgid "Contents"
-msgstr ""
-
-#: ../data/ui/NaturalscrollingWindow.ui.h:3
-msgid "Status Area"
-msgstr ""
-
-#: ../data/ui/NaturalscrollingWindow.ui.h:4
+#: ../data/ui/AboutNaturalscrollingDialog.ui.h:1
 msgid ""
-"Your application has been created!\n"
-"\n"
-"To start changing this user interface, run 'quickly design', which will open "
-"Glade so you can edit the default windows and dialogs.\n"
-"\n"
-"To change the behavior and edit the python code, run 'quickly edit', which "
-"will bring up a text editor."
+"# Copyright (C) 2011 Eumorphed UG, Charalampos Emmanouilidis <charalampos."
+"emmanouilidis@eumorphed.com>\n"
+"# \n"
+"# This program is free software: you can redistribute it and/or modify it \n"
+"# under the terms of the GNU General Public License version 3, as "
+"published \n"
+"# by the Free Software Foundation.\n"
+"# \n"
+"# This program is distributed in the hope that it will be useful, but \n"
+"# WITHOUT ANY WARRANTY; without even the implied warranties of \n"
+"# MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR \n"
+"# PURPOSE.  See the GNU General Public License for more details.\n"
+"# \n"
+"# You should have received a copy of the GNU General Public License along \n"
+"# with this program.  If not, see <http://www.gnu.org/licenses/>.\n"
 msgstr ""
 
-#: ../data/ui/NaturalscrollingWindow.ui.h:9
-msgid "_Edit"
-msgstr ""
-
-#: ../data/ui/NaturalscrollingWindow.ui.h:10
-msgid "_File"
-msgstr ""
-
-#: ../data/ui/NaturalscrollingWindow.ui.h:11
-msgid "_Help"
-msgstr ""
-
-#: ../data/ui/NaturalscrollingWindow.ui.h:12
-msgid "_View"
-msgstr ""
-
-#: ../data/ui/PreferencesNaturalscrollingDialog.ui.h:1
-msgid "Naturalscrolling Preferences"
-msgstr ""
-
-#: ../data/ui/PreferencesNaturalscrollingDialog.ui.h:2
-msgid "_Example entry:"
+#: ../data/ui/AboutNaturalscrollingDialog.ui.h:15
+msgid ""
+"Copyright (C) 2011 Eumorphed UG, Charalampos Emmanouilidis <charalampos."
+"emmanouilidis@eumorphed.com>"
 msgstr ""
