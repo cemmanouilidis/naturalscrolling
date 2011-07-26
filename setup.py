@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- Mode: Python; coding: utf-8; indent-tabs-mode: nil; tab-width: 4 -*-
 ### BEGIN LICENSE
-# Copyright (C) 2011 Eumorphed UG, Charalampos Emmanouilidis <charalampos.emmanouilidis@eumorphed.com>
+# Copyright (C) 2011 Eumorphed UG, Charalampos Emmanouilidis <ce@eumorphed.com>
 # 
 # This program is free software: you can redistribute it and/or modify it 
 # under the terms of the GNU General Public License version 3, as published 
@@ -88,7 +88,7 @@ class InstallAndUpdateDataDirectory(DistUtilsExtra.auto.install_auto):
 
 DistUtilsExtra.auto.setup(
     name='naturalscrolling',
-    version='0.2.2',
+    version='0.2.3',
     license='GPL-3',
     author='Charalampos Emmanouilidis',
     author_email='charalampos.emmanouilidis@eumorphed.com',
