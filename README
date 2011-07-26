@@ -5,5 +5,9 @@ Natural Scrolling adds a menu bar item allowing the direction of scrolling to be
 Use Natural Scrolling to reverse the direction of scrolling on your Linux.
 With Natural Scrolling, you push your fingers upwards to move the page content upwards (and downwards for downwards) just like on iOS devices.
 
+Known Issues:
 
+Natural Scrolling 0.2.4:
+ 'Start at login' does not work yet.
+ Support for light themes only, e.g. Ubuntu's Radiance theme
 
