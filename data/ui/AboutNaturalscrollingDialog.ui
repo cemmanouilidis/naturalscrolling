@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<interface>
+  <requires lib="gtk+" version="2.16"/>
+  <!-- interface-requires about_naturalscrolling_dialog 1.0 -->
+  <!-- interface-naming-policy project-wide -->
+  <object class="AboutNaturalscrollingDialog" id="about_naturalscrolling_dialog">
+    <property name="border_width">5</property>
+    <property name="icon">../media/naturalscrolling.svg</property>
+    <property name="type_hint">normal</property>
+    <property name="has_separator">False</property>
+    <property name="program_name">Naturalscrolling</property>
+    <property name="version"></property>
+    <property name="copyright"></property>
+    <property name="website"></property>
+    <property name="license"></property>
+    <property name="authors"></property>
+    <property name="logo">../media/naturalscrolling.svg</property>
+    <child internal-child="vbox">
+      <object class="GtkVBox" id="dialog-vbox1">
+        <property name="visible">True</property>
+        <property name="orientation">vertical</property>
+        <property name="spacing">2</property>
+        <child>
+          <placeholder/>
+        </child>
+        <child internal-child="action_area">
+          <object class="GtkHButtonBox" id="dialog-action_area1">
+            <property name="visible">True</property>
+            <property name="layout_style">end</property>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="pack_type">end</property>
+            <property name="position">0</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+  </object>
+</interface>
