@@ -26,11 +26,26 @@ class NaturalscrollingIndicator:
         self.menu_setup()
         self.ind.set_menu (self.menu)
 
+
     def get_slave_pointer (self):
         cmd = "xinput list | grep pointer | grep slave | grep -v XTEST | gawk -F'id=' '{print $2}' | gawk '{print $1}'"
         slavepointer = os.popen (cmd).read().split()
         return slavepointer
 
+
+    def isreversed (self):
+        inreverseorder = False 
+        
+        for id in self.mouseid:
+            map = os.popen('xinput get-button-map %s' % id).read().strip()
+
+            if '5 4' in map:
+                inreverseorder = True
+                break
+        
+        return inreverseorder
+
+    
     def menu_setup(self):
         self.menu = gtk.Menu()
         
@@ -49,9 +64,9 @@ class NaturalscrollingIndicator:
         self.menu_sub = gtk.Menu()
         self.menu_item_preferences = gtk.MenuItem (_('Preferences'))
         self.menu_item_start_at_login = gtk.CheckMenuItem (_('Start at login'))
+        self.menu_item_start_at_login.connect ('activate', self.on_start_at_login_toggled)
         self.menu_sub.append (self.menu_item_start_at_login)
         self.menu_item_preferences.set_submenu (self.menu_sub)
-
         self.menu_item_start_at_login.show()
         self.menu_item_preferences.show()
 
@@ -77,25 +92,14 @@ class NaturalscrollingIndicator:
         self.menu.append(self.menu_item_seperator2)
         self.menu.append(self.menu_item_quit)
 
-    def main(self):
-        self.check_scrolling()
-        gtk.timeout_add(self.pingfrequency * 1000, self.check_scrolling)
-        gtk.main()
-
-    def quit(self, widget):
-        sys.exit(0)
-    
-    def isreversed (self):
-        inreverseorder = False 
         
-        for id in self.mouseid:
-            map = os.popen('xinput get-button-map %s' % id).read().strip()
-
-            if '3 5 4' in map:
-                inreverseorder = True
-                break
-        
-        return inreverseorder
+    def check_scrolling (self):
+        if self.isreversed():
+            self.ind.set_status(appindicator.STATUS_ATTENTION)
+        else:
+            self.ind.set_status(appindicator.STATUS_ACTIVE)
+       
+        return True
 
 
     def on_natural_scrolling_toggled (self, widget, data=None):
@@ -105,23 +109,30 @@ class NaturalscrollingIndicator:
             map = os.popen ('xinput get-button-map %s' % id).read().strip()
 
             if self.isreversed():
-                map = map.replace ('3 5 4', '3 4 5')
+                map = map.replace ('5 4', '4 5')
             else:
-                map = map.replace ('3 4 5', '3 5 4')
+                map = map.replace ('4 5', '5 4')
 
             os.system ('xinput set-button-map %s %s' % (id, map))
-    
+
+
+    def on_start_at_login_toggled (self, widget, data=None):
+        print 'start at login %s' % widget.get_active()
+
+
     def on_about_clicked (self, widget, data=None):
         about = self.AboutDialog() # pylint: disable=E1102
         response = about.run()
         about.destroy()
 
 
-    def check_scrolling (self):
-        if self.isreversed():
-            self.ind.set_status(appindicator.STATUS_ATTENTION)
-        else:
-            self.ind.set_status(appindicator.STATUS_ACTIVE)
-       
-        return True
+    def main(self):
+        self.check_scrolling()
+        gtk.timeout_add(self.pingfrequency * 1000, self.check_scrolling)
+        gtk.main()
+
+
+    def quit(self, widget):
+        sys.exit(0)
+
 
