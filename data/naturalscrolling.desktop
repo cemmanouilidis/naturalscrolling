@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Encoding=UTF-8
+Name=NaturalScrolling
+Comment=Natural scrolling applet
+Exec=sh -c '/usr/bin/naturalscrolling'
+Hidden=false
+NoDisplay=false
+Terminal=false
+X-GNOME-Autostart-enabled=true
