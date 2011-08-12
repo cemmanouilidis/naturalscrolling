@@ -20,15 +20,15 @@ class NaturalscrollingIndicator:
         self.ind = appindicator.Indicator("natural-scrolling-indicator", 'natural-scrolling-status-not-activated', appindicator.CATEGORY_APPLICATION_STATUS)
 
         media_path = "%s/media/" % naturalscrollingconfig.get_data_path()
-        self.ind.set_icon_theme_path (media_path)
-        self.ind.set_attention_icon  ("natural-scrolling-status-activated")
+        self.ind.set_icon_theme_path(media_path)
+        self.ind.set_attention_icon ("natural-scrolling-status-activated")
         
         self.menu_setup()
-        self.ind.set_menu (self.menu)
+        self.ind.set_menu(self.menu)
 
-    def get_slave_pointer (self):
+    def get_slave_pointer(self):
         cmd = "xinput list | grep pointer | grep slave | grep -v XTEST | gawk -F'id=' '{print $2}' | gawk '{print $1}'"
-        slavepointer = os.popen (cmd).read().split()
+        slavepointer = os.popen(cmd).read().split()
         return slavepointer
 
     def menu_setup(self):
@@ -37,8 +37,8 @@ class NaturalscrollingIndicator:
         #natural scrolling
         self.menu_item_natural_scrolling = gtk.CheckMenuItem(_('Natural Scrolling'))
         if self.isreversed():
-            self.menu_item_natural_scrolling.set_active (True)
-        self.menu_item_natural_scrolling.connect ('activate', self.on_natural_scrolling_toggled)
+            self.menu_item_natural_scrolling.set_active(True)
+        self.menu_item_natural_scrolling.connect('activate', self.on_natural_scrolling_toggled)
         self.menu_item_natural_scrolling.show()
 
         #seperator 1
@@ -47,17 +47,20 @@ class NaturalscrollingIndicator:
 
         #preferences
         self.menu_sub = gtk.Menu()
-        self.menu_item_preferences = gtk.MenuItem (_('Preferences'))
-        self.menu_item_start_at_login = gtk.CheckMenuItem (_('Start at login'))
-        self.menu_sub.append (self.menu_item_start_at_login)
-        self.menu_item_preferences.set_submenu (self.menu_sub)
+        self.menu_item_preferences = gtk.MenuItem(_('Preferences'))
+        self.menu_item_start_at_login = gtk.CheckMenuItem(_('Start at login'))
+        if os.path.isfile(naturalscrollingconfig.get_auto_start_file_path()):
+            self.menu_item_start_at_login.set_active(True)
+        self.menu_item_start_at_login.connect("activate", self.on_start_at_login_clicked)
+        self.menu_sub.append(self.menu_item_start_at_login)
+        self.menu_item_preferences.set_submenu(self.menu_sub)
 
         self.menu_item_start_at_login.show()
         self.menu_item_preferences.show()
 
         #about
-        self.menu_item_about = gtk.MenuItem (_('About...'))
-        self.menu_item_about.connect ('activate', self.on_about_clicked)
+        self.menu_item_about = gtk.MenuItem(_('About...'))
+        self.menu_item_about.connect('activate', self.on_about_clicked)
         self.menu_item_about.show()
 
         #seperator 2
@@ -85,7 +88,7 @@ class NaturalscrollingIndicator:
     def quit(self, widget):
         sys.exit(0)
     
-    def isreversed (self):
+    def isreversed(self):
         inreverseorder = False 
         
         for id in self.mouseid:
@@ -98,26 +101,42 @@ class NaturalscrollingIndicator:
         return inreverseorder
 
 
-    def on_natural_scrolling_toggled (self, widget, data=None):
+    def on_natural_scrolling_toggled(self, widget, data=None):
         map = ''
 
         for id in self.mouseid:
-            map = os.popen ('xinput get-button-map %s' % id).read().strip()
+            map = os.popen('xinput get-button-map %s' % id).read().strip()
 
             if self.isreversed():
-                map = map.replace ('3 5 4', '3 4 5')
+                map = map.replace('3 5 4', '3 4 5')
             else:
-                map = map.replace ('3 4 5', '3 5 4')
+                map = map.replace('3 4 5', '3 5 4')
 
-            os.system ('xinput set-button-map %s %s' % (id, map))
-    
-    def on_about_clicked (self, widget, data=None):
+            os.system('xinput set-button-map %s %s' %(id, map))
+
+    def on_start_at_login_clicked(self, widget, data=None):
+        
+        if not os.path.exists(naturalscrollingconfig.get_auto_start_path()):
+            os.makedirs(naturalscrollingconfig.get_auto_start_path())
+        
+        auto_start_file_exists = os.path.isfile(naturalscrollingconfig.get_auto_start_file_path())
+        if widget.get_active():
+            if not auto_start_file_exists:
+                source = open(naturalscrollingconfig.get_data_path() + "/" + naturalscrollingconfig.get_auto_start_file_name(), "r")
+                destination = open(naturalscrollingconfig.get_auto_start_file_path(), "w")
+                destination.write (source.read())
+                destination.close() and source.close()
+        else:
+            if auto_start_file_exists:
+                os.remove(naturalscrollingconfig.get_auto_start_file_path())
+
+    def on_about_clicked(self, widget, data=None):
         about = self.AboutDialog() # pylint: disable=E1102
         response = about.run()
         about.destroy()
 
 
-    def check_scrolling (self):
+    def check_scrolling(self):
         if self.isreversed():
             self.ind.set_status(appindicator.STATUS_ATTENTION)
         else:
