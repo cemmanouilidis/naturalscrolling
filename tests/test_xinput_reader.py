@@ -51,8 +51,6 @@ class TestXinputReader (unittest.TestCase):
 
     def testXinputListCommand (self):
         xinput = SwissKnife.Xinput()
-        reader = SwissKnife.XinputReader()
-
         xinput_list_output = xinput.list()
         
         self.assertTrue (len (xinput_list_output) > 0, 'empty output for command <xinput list>')

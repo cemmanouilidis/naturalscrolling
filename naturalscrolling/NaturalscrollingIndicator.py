@@ -5,6 +5,7 @@ import gtk
 import appindicator
 
 from naturalscrolling_lib import naturalscrollingconfig 
+from naturalscrolling_lib import SwissKnife
 from naturalscrolling.AboutNaturalscrollingDialog import AboutNaturalscrollingDialog
 
 import gettext
@@ -14,9 +15,8 @@ gettext.textdomain('naturalscrolling')
 class NaturalscrollingIndicator: 
     def __init__(self):
         self.AboutDialog = AboutNaturalscrollingDialog
-        self.mouseid = self.get_slave_pointer() 
         self.pingfrequency = 1 # in seconds
-        
+        self.mouseids = self.get_slave_pointer() 
         self.ind = appindicator.Indicator("natural-scrolling-indicator", 'natural-scrolling-status-not-activated', appindicator.CATEGORY_APPLICATION_STATUS)
 
         media_path = "%s/media/" % naturalscrollingconfig.get_data_path()
@@ -26,19 +26,22 @@ class NaturalscrollingIndicator:
         self.menu_setup()
         self.ind.set_menu (self.menu)
 
-
     def get_slave_pointer (self):
-        cmd = "xinput list | grep pointer | grep slave | grep -v XTEST | gawk -F'id=' '{print $2}' | gawk '{print $1}'"
-        slavepointer = os.popen (cmd).read().split()
+        xinput_reader = SwissKnife.XinputReader()
+        xinput = SwissKnife.Xinput()
+
+        slavepointer = xinput_reader.get_slave_pointer (xinput.list())
+        
+        print slavepointer
         return slavepointer
 
 
     def isreversed (self):
         inreverseorder = False 
         
-        for id in self.mouseid:
+        for id in self.mouseids:
             map = os.popen('xinput get-button-map %s' % id).read().strip()
-
+            print map
             if '5 4' in map:
                 inreverseorder = True
                 break
@@ -105,7 +108,7 @@ class NaturalscrollingIndicator:
     def on_natural_scrolling_toggled (self, widget, data=None):
         map = ''
 
-        for id in self.mouseid:
+        for id in self.mouseids:
             map = os.popen ('xinput get-button-map %s' % id).read().strip()
 
             if self.isreversed():
