@@ -4,3 +4,4 @@ debian
 .quickly
 *.pyc
 *.swp
+.gpairrc
