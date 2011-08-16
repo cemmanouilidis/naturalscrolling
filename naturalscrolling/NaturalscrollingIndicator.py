@@ -33,14 +33,14 @@ class NaturalscrollingIndicator:
         slavepointer = xinput_reader.get_slave_pointer (xinput.list())
         
         print slavepointer
-
+        
+        return slavepointer
 
     def isreversed (self):
         inreverseorder = False 
         
         for id in self.mouseids:
             map = os.popen('xinput get-button-map %s' % id).read().strip()
-            print map
             if '5 4' in map:
                 inreverseorder = True
                 break
@@ -98,19 +98,7 @@ class NaturalscrollingIndicator:
         self.menu.append(self.menu_item_seperator2)
         self.menu.append(self.menu_item_quit)
 
-    def quit(self, widget):
-        sys.exit(0)
     
-    def isreversed(self):
-        inreverseorder = False 
-        
-        for id in self.mouseid:
-            map = os.popen('xinput get-button-map %s' % id).read().strip()
-
-            if '3 5 4' in map:
-                inreverseorder = True
-                break
-        
     def check_scrolling (self):
         if self.isreversed():
             self.ind.set_status(appindicator.STATUS_ATTENTION)
@@ -118,7 +106,6 @@ class NaturalscrollingIndicator:
             self.ind.set_status(appindicator.STATUS_ACTIVE)
        
         return True
-
 
     def on_natural_scrolling_toggled(self, widget, data=None):
         map = ''
