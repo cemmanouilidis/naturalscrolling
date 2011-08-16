@@ -63,14 +63,11 @@ def get_data_path():
     is specified at installation time.
     """
 
-    print os.path.dirname(__file__)
-
     # Get pathname absolute or relative.
     path = os.path.join(
         os.path.dirname(__file__), __naturalscrolling_data_directory__)
 
     abs_data_path = os.path.abspath(path)
-    print abs_data_path
     if not os.path.exists(abs_data_path):
         raise project_path_not_found
 
