@@ -24,6 +24,9 @@ __all__ = [
     'project_path_not_found',
     'get_data_file',
     'get_data_path',
+    'get_auto_start_path',
+    'get_auto_start_file_name',
+    'get_auto_start_file_path'
     ]
 
 # Where your project will look for your data (for instance, images and ui
@@ -60,16 +63,30 @@ def get_data_path():
     is specified at installation time.
     """
 
+    print os.path.dirname(__file__)
+
     # Get pathname absolute or relative.
     path = os.path.join(
         os.path.dirname(__file__), __naturalscrolling_data_directory__)
 
     abs_data_path = os.path.abspath(path)
+    print abs_data_path
     if not os.path.exists(abs_data_path):
         raise project_path_not_found
 
     return abs_data_path
 
+def get_auto_start_path():
+    """ Retrieve the autostart folder from user's HOME folder """
+    return os.getenv("HOME") + "/.config/autostart/"
+
+def get_auto_start_file_name():
+    """ Return the autostart file for naturalscrolling """
+    return "naturalscrolling.desktop"
+
+def get_auto_start_file_path():
+    """ Return the full path of the autostart file for naturalscrolling """
+    return get_auto_start_path() + "/" + get_auto_start_file_name()
 
 def get_version():
     return __version__

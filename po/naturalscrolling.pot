@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-07-26 09:42+0200\n"
+"POT-Creation-Date: 2011-08-12 19:03+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -33,12 +33,12 @@ msgid "Start at login"
 msgstr ""
 
 #. about
-#: ../naturalscrolling/NaturalscrollingIndicator.py:59
+#: ../naturalscrolling/NaturalscrollingIndicator.py:62
 msgid "About..."
 msgstr ""
 
 #. quit
-#: ../naturalscrolling/NaturalscrollingIndicator.py:68
+#: ../naturalscrolling/NaturalscrollingIndicator.py:71
 msgid "Quit Natural Srcolling"
 msgstr ""
 
