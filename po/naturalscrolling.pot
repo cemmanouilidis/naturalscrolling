@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-08-12 19:03+0200\n"
+"POT-Creation-Date: 2011-08-18 20:56+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,26 +19,26 @@ msgstr ""
 
 #. natural scrolling
 #. Code for other initialization actions should be added here.
-#: ../naturalscrolling/NaturalscrollingIndicator.py:38
+#: ../naturalscrolling/NaturalscrollingIndicator.py:45
 #: ../naturalscrolling.desktop.in.h:1
 msgid "Natural Scrolling"
 msgstr ""
 
-#: ../naturalscrolling/NaturalscrollingIndicator.py:50
+#: ../naturalscrolling/NaturalscrollingIndicator.py:60
 msgid "Preferences"
 msgstr ""
 
-#: ../naturalscrolling/NaturalscrollingIndicator.py:51
+#: ../naturalscrolling/NaturalscrollingIndicator.py:61
 msgid "Start at login"
 msgstr ""
 
 #. about
-#: ../naturalscrolling/NaturalscrollingIndicator.py:62
+#: ../naturalscrolling/NaturalscrollingIndicator.py:72
 msgid "About..."
 msgstr ""
 
 #. quit
-#: ../naturalscrolling/NaturalscrollingIndicator.py:71
+#: ../naturalscrolling/NaturalscrollingIndicator.py:81
 msgid "Quit Natural Srcolling"
 msgstr ""
 
@@ -46,7 +46,7 @@ msgstr ""
 msgid "Natural Scrolling application"
 msgstr ""
 
-#: ../naturalscrolling/__init__.py:36
+#: ../naturalscrolling/__init__.py:34
 msgid "Show debug messages (-vv debugs naturalscrolling_lib also)"
 msgstr ""
 
@@ -67,6 +67,7 @@ msgid ""
 "# \n"
 "# You should have received a copy of the GNU General Public License along \n"
 "# with this program.  If not, see <http://www.gnu.org/licenses/>.\n"
+"    "
 msgstr ""
 
 #: ../data/ui/AboutNaturalscrollingDialog.ui.h:15

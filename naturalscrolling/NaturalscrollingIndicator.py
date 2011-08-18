@@ -4,58 +4,50 @@ import os
 import gtk
 import appindicator
 
-from naturalscrolling_lib import naturalscrollingconfig 
+from naturalscrolling_lib import naturalscrollingconfig
 from naturalscrolling_lib import SwissKnife
+from naturalscrolling_lib.GConfSettings import *
 from naturalscrolling.AboutNaturalscrollingDialog import AboutNaturalscrollingDialog
 
 import gettext
 from gettext import gettext as _
 gettext.textdomain('naturalscrolling')
 
-class NaturalscrollingIndicator: 
+class NaturalscrollingIndicator:
+    
     def __init__(self):
         self.AboutDialog = AboutNaturalscrollingDialog
-        self.pingfrequency = 1 # in seconds
-        self.mouseids = self.get_slave_pointer() 
-        self.ind = appindicator.Indicator("natural-scrolling-indicator", 'natural-scrolling-status-not-activated', appindicator.CATEGORY_APPLICATION_STATUS)
+        self.mouseid = self.get_slave_pointer()
+        self.ind = appindicator.Indicator(
+            "natural-scrolling-indicator",
+            "natural-scrolling-status-not-activated",
+            appindicator.CATEGORY_APPLICATION_STATUS
+        )
+        self.settings = GConfSettings()
 
         media_path = "%s/media/" % naturalscrollingconfig.get_data_path()
         self.ind.set_icon_theme_path(media_path)
-        self.ind.set_attention_icon ("natural-scrolling-status-activated")
+        self.ind.set_attention_icon("natural-scrolling-status-activated")
         
         self.menu_setup()
         self.ind.set_menu(self.menu)
 
-    def get_slave_pointer (self):
+    def get_slave_pointer(self):
         xinput_reader = SwissKnife.XinputReader()
         xinput = SwissKnife.Xinput()
 
-        slavepointer = xinput_reader.get_slave_pointer (xinput.list())
-        
-        print slavepointer
-        
-        return slavepointer
+        return xinput_reader.get_slave_pointer(xinput.list())[0]
 
-    def isreversed (self):
-        inreverseorder = False 
-        
-        for id in self.mouseids:
-            map = os.popen('xinput get-button-map %s' % id).read().strip()
-            if '5 4' in map:
-                inreverseorder = True
-                break
-        
-        return inreverseorder
-
-    
     def menu_setup(self):
         self.menu = gtk.Menu()
         
         #natural scrolling
         self.menu_item_natural_scrolling = gtk.CheckMenuItem(_('Natural Scrolling'))
-        if self.isreversed():
-            self.menu_item_natural_scrolling.set_active(True)
+        self.enable_natural_scrolling(
+            self.settings.key(GCONF_NATURAL_SCROLLING_KEY).is_enable()
+        )
         self.menu_item_natural_scrolling.connect('activate', self.on_natural_scrolling_toggled)
+        self.settings.server().fire_me_when_update_on_key(GCONF_NATURAL_SCROLLING_KEY, self.enable_natural_scrolling)
         self.menu_item_natural_scrolling.show()
 
         #seperator 1
@@ -98,30 +90,35 @@ class NaturalscrollingIndicator:
         self.menu.append(self.menu_item_seperator2)
         self.menu.append(self.menu_item_quit)
 
-    
-    def check_scrolling (self):
-        if self.isreversed():
+    def enable_natural_scrolling(self, enabled):
+        """
+        Global method to apply or not Natural Scrolling
+        """
+        map = os.popen('xinput get-button-map %s' % self.mouseid).read().strip()
+        
+        if enabled == True:
+            map = map.replace('4 5', '5 4')
+            self.settings.key(GCONF_NATURAL_SCROLLING_KEY).enable()
             self.ind.set_status(appindicator.STATUS_ATTENTION)
         else:
+            map = map.replace('5 4', '4 5')
+            self.settings.key(GCONF_NATURAL_SCROLLING_KEY).disable()
             self.ind.set_status(appindicator.STATUS_ACTIVE)
-       
-        return True
+        
+        self.menu_item_natural_scrolling.set_active(enabled)
+        
+        os.system('xinput set-button-map %s %s' %(self.mouseid, map))
 
     def on_natural_scrolling_toggled(self, widget, data=None):
-        map = ''
-        for id in self.mouseids:
-            map = os.popen ('xinput get-button-map %s' % id).read().strip()
-
-            if self.isreversed():
-                map = map.replace ('5 4', '4 5')
-            else:
-                map = map.replace ('4 5', '5 4')
-
-            os.system ('xinput set-button-map %s %s' % (id, map))
-
+        """
+        Fired method when user click on gtk.CheckMenuItem 'Natural Scrolling'
+        """
+        self.enable_natural_scrolling(widget.get_active())
 
     def on_start_at_login_clicked(self, widget, data=None):
-        
+        """
+        Fired method when user click on gtk.CheckMenuItem 'Start at login'
+        """
         if not os.path.exists(naturalscrollingconfig.get_auto_start_path()):
             os.makedirs(naturalscrollingconfig.get_auto_start_path())
         
@@ -130,7 +127,7 @@ class NaturalscrollingIndicator:
             if not auto_start_file_exists:
                 source = open(naturalscrollingconfig.get_data_path() + "/" + naturalscrollingconfig.get_auto_start_file_name(), "r")
                 destination = open(naturalscrollingconfig.get_auto_start_file_path(), "w")
-                destination.write (source.read())
+                destination.write(source.read())
                 destination.close() and source.close()
         else:
             if auto_start_file_exists:
@@ -141,12 +138,8 @@ class NaturalscrollingIndicator:
         response = about.run()
         about.destroy()
 
-
     def main(self):
-        self.check_scrolling()
-        gtk.timeout_add(self.pingfrequency * 1000, self.check_scrolling)
         gtk.main()
-
 
     def quit(self, widget):
         sys.exit(0)

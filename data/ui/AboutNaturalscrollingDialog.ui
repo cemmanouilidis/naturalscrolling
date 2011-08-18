@@ -1,7 +1,5 @@
 <interface>
-  
   <requires lib="gtk+" version="2.16" />
-  
   <object class="AboutNaturalscrollingDialog" id="about_naturalscrolling_dialog">
     <property name="license" translatable="yes"># Copyright (C) 2011 Eumorphed UG, Charalampos Emmanouilidis &lt;ce@eumorphed.com&gt;
 # 
@@ -16,13 +14,15 @@
 # 
 # You should have received a copy of the GNU General Public License along 
 # with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.
-</property><property name="copyright" translatable="yes">Copyright (C) 2011 Eumorphed UG, Charalampos Emmanouilidis &lt;ce@eumorphed.com&gt;</property><property name="can_focus">False</property>
+    </property>
+    <property name="copyright" translatable="yes">Copyright (C) 2011 Eumorphed UG, Charalampos Emmanouilidis &lt;ce@eumorphed.com&gt;</property>
+    <property name="can_focus">False</property>
     <property name="border_width">5</property>
     <property name="icon">../media/naturalscrolling.svg</property>
     <property name="type_hint">normal</property>
     <property name="program_name">Natural Scrolling</property>
     <property name="authors">Copyright (C) 2011 Eumorphed UG, Charalampos Emmanouilidis &lt;ce@eumorphed.com&gt;
-</property>
+Guillaume Hain &lt;zedtux@zedroot.org&gt;</property>
     <property name="logo">../media/naturalscrolling.svg</property>
     <child internal-child="vbox">
       <object class="GtkVBox" id="dialog-vbox1">
