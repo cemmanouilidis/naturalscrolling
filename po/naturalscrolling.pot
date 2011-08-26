@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-08-18 20:56+0200\n"
+"POT-Creation-Date: 2011-08-19 14:04+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,26 +19,26 @@ msgstr ""
 
 #. natural scrolling
 #. Code for other initialization actions should be added here.
-#: ../naturalscrolling/NaturalscrollingIndicator.py:45
+#: ../naturalscrolling/NaturalscrollingIndicator.py:51
 #: ../naturalscrolling.desktop.in.h:1
 msgid "Natural Scrolling"
 msgstr ""
 
-#: ../naturalscrolling/NaturalscrollingIndicator.py:60
+#: ../naturalscrolling/NaturalscrollingIndicator.py:63
 msgid "Preferences"
 msgstr ""
 
-#: ../naturalscrolling/NaturalscrollingIndicator.py:61
+#: ../naturalscrolling/NaturalscrollingIndicator.py:64
 msgid "Start at login"
 msgstr ""
 
 #. about
-#: ../naturalscrolling/NaturalscrollingIndicator.py:72
+#: ../naturalscrolling/NaturalscrollingIndicator.py:74
 msgid "About..."
 msgstr ""
 
 #. quit
-#: ../naturalscrolling/NaturalscrollingIndicator.py:81
+#: ../naturalscrolling/NaturalscrollingIndicator.py:83
 msgid "Quit Natural Srcolling"
 msgstr ""
 
@@ -72,5 +72,7 @@ msgstr ""
 
 #: ../data/ui/AboutNaturalscrollingDialog.ui.h:15
 msgid ""
-"Copyright (C) 2011 Eumorphed UG, Charalampos Emmanouilidis <ce@eumorphed.com>"
+"Copyright (C) 2011 Eumorphed UG, Charalampos Emmanouilidis <ce@eumorphed."
+"com>\n"
+"Guillaume Hain <zedtux@zedroot.org>"
 msgstr ""

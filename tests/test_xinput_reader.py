@@ -36,6 +36,7 @@ class TestXinputReader (unittest.TestCase):
         ]
 
     
+
     def testGetNrOfSlavePointer (self):
         reader = SwissKnife.XinputReader()
 
