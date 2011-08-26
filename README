@@ -5,9 +5,8 @@ Natural Scrolling adds a menu bar item allowing the direction of scrolling to be
 Use Natural Scrolling to reverse the direction of scrolling on your Linux.
 With Natural Scrolling, you push your fingers upwards to move the page content upwards (and downwards for downwards) just like on iOS devices.
 
-This the 0.3.work branch:
+This the 0.4.work branch:
   TODO: 
-  - Fix issue with indicator status icon: 
-    calling "self.ind.set_status ()" does not change the indicator icon
-         
+  - implement support for horizontal Scrolling
+  - detect desktop theme switches and change the indicator's icon theme
 
