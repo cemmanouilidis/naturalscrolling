@@ -1,6 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <interface>
-  <requires lib="gtk+" version="2.16" />
+  <!-- interface-requires about_naturalscrolling_dialog 1.0 -->
+  <requires lib="gtk+" version="2.16"/>
+  <!-- interface-naming-policy toplevel-contextual -->
   <object class="AboutNaturalscrollingDialog" id="about_naturalscrolling_dialog">
+    <property name="can_focus">False</property>
+    <property name="border_width">5</property>
+    <property name="icon">../media/naturalscrolling.svg</property>
+    <property name="type_hint">normal</property>
+    <property name="program_name">Natural Scrolling</property>
+    <property name="copyright" translatable="yes">Copyright (C) 2011 Eumorphed UG, Charalampos Emmanouilidis &lt;ce@eumorphed.com&gt;
+Guillaume Hain &lt;zedtux@zedroot.org&gt;</property>
     <property name="license" translatable="yes"># Copyright (C) 2011 Eumorphed UG, Charalampos Emmanouilidis &lt;ce@eumorphed.com&gt;
 # 
 # This program is free software: you can redistribute it and/or modify it 
@@ -15,12 +25,6 @@
 # You should have received a copy of the GNU General Public License along 
 # with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.
     </property>
-    <property name="copyright" translatable="yes">Copyright (C) 2011 Eumorphed UG, Charalampos Emmanouilidis &lt;ce@eumorphed.com&gt;</property>
-    <property name="can_focus">False</property>
-    <property name="border_width">5</property>
-    <property name="icon">../media/naturalscrolling.svg</property>
-    <property name="type_hint">normal</property>
-    <property name="program_name">Natural Scrolling</property>
     <property name="authors">Copyright (C) 2011 Eumorphed UG, Charalampos Emmanouilidis &lt;ce@eumorphed.com&gt;
 Guillaume Hain &lt;zedtux@zedroot.org&gt;</property>
     <property name="logo">../media/naturalscrolling.svg</property>
@@ -43,7 +47,7 @@ Guillaume Hain &lt;zedtux@zedroot.org&gt;</property>
           </packing>
         </child>
         <child>
-          <placeholder />
+          <placeholder/>
         </child>
       </object>
     </child>
