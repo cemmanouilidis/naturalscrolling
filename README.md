@@ -7,5 +7,4 @@ With Natural Scrolling, you push your fingers upwards to move the page content u
 
 #### Natural Scrolling 0.4.work:
 ####  TODO:
-    
-    - detect desktop theme switches and change the indicator's icon theme
+- detect desktop theme switches and change the indicator's icon theme
