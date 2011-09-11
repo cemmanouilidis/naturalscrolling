@@ -17,7 +17,11 @@
 
 '''Enhances builder connections, provides object to access glade objects'''
 
-from gi.repository import GObject  # pylint: disable=E0611
+import sys
+if 'gobject' in sys.modules:
+    import gobject as GObject
+else:
+    from gi.repository import GObject
 
 import gtk
 import inspect
