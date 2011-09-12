@@ -17,7 +17,13 @@ class NaturalscrollingIndicator:
     
     def __init__(self):
         self.AboutDialog = AboutNaturalscrollingDialog
+<<<<<<< HEAD
         self.mouseid = self.get_slave_pointer()
+=======
+        self.mouseids = self.get_slave_pointer()
+        self.pingfrequency = 1 # in seconds
+        
+>>>>>>> master
         self.ind = appindicator.Indicator(
             "natural-scrolling-indicator",
             "natural-scrolling-status-not-activated",
@@ -140,8 +146,35 @@ class NaturalscrollingIndicator:
         response = about.run()
         about.destroy()
 
+
+    def isreversed(self):
+        inreverseorder = False
+
+        for id in self.mouseids:
+            map = os.popen('xinput get-button-map %s' % id).read().strip()
+
+            if '5 4' in map:
+                inreverseorder = True
+                break
+
+        return inreverseorder
+
+
+    def check_scrolling(self):
+        if self.isreversed():
+            self.ind.set_status(appindicator.STATUS_ATTENTION)
+        else:
+            self.ind.set_status(appindicator.STATUS_ACTIVE)
+       
+        return True
+
+
     def main(self):
+        self.check_scrolling()
+        gtk.timeout_add(self.pingfrequency * 1000, self.check_scrolling)
+
         gtk.main()
+
 
     def quit(self, widget):
         sys.exit(0)
