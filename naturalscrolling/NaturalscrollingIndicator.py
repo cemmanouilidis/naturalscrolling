@@ -17,13 +17,9 @@ class NaturalscrollingIndicator:
     
     def __init__(self):
         self.AboutDialog = AboutNaturalscrollingDialog
-<<<<<<< HEAD
-        self.mouseid = self.get_slave_pointer()
-=======
         self.mouseids = self.get_slave_pointer()
         self.pingfrequency = 1 # in seconds
         
->>>>>>> master
         self.ind = appindicator.Indicator(
             "natural-scrolling-indicator",
             "natural-scrolling-status-not-activated",
