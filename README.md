@@ -8,4 +8,4 @@ With Natural Scrolling, you push your fingers upwards to move the page content u
 Don't move scrollbars anymore but your file.
 
 ## Ubuntu
-![Natural Scrolling Screenshot](https://github.com/cemmanouilidis/naturalscrolling/blob/master/data/media/Screenshot.png)
+![Natural Scrolling Screenshot](http://dl.dropbox.com/u/1111373/NaturalScrolling/Screenshot.png)
