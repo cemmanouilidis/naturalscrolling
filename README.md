@@ -18,4 +18,3 @@ When Natural Scrolling is active a small ‘tick’ will be shown. Click again t
 ## Ubuntu
 ![Natural Scrolling Screenshot](http://dl.dropbox.com/u/1111373/NaturalScrolling/Screenshot.png)
 
-
