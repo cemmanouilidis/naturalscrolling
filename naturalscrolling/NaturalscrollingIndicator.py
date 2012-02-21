@@ -80,7 +80,7 @@ class NaturalscrollingIndicator:
         self.menu_item_seperator2.show()
 
         #quit
-        self.menu_item_quit = gtk.MenuItem(_('Quit Natural Srcolling'))
+        self.menu_item_quit = gtk.MenuItem(_('Quit Natural Scrolling'))
         self.menu_item_quit.connect("activate", self.quit)
         self.menu_item_quit.show()
 
