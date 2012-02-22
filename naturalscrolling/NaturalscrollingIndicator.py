@@ -96,7 +96,7 @@ class NaturalscrollingIndicator:
         """
         Global method to apply or not Natural Scrolling
         """
-        map = os.popen('xinput get-button-map %s' % self.mouseid).read().strip()
+        map = os.popen('xinput get-button-map %s' % self.mouseids).read().strip()
         
         if enabled == True:
             map = map.replace('4 5', '5 4')
@@ -111,7 +111,7 @@ class NaturalscrollingIndicator:
         
         self.menu_item_natural_scrolling.set_active(enabled)
         
-        os.system('xinput set-button-map %s %s' %(self.mouseid, map))
+        os.system('xinput set-button-map %s %s' %(self.mouseids, map))
 
     def on_natural_scrolling_toggled(self, widget, data=None):
         """
