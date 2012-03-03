@@ -66,7 +66,6 @@ class UDevObservator(object):
         """
         if device.sys_name.startswith("event"):
             XinputWarper().reset_cache()
-            print device.sys_name
             GConfSettings().key(XinputWarper().find_xid_by_name(
                 device.parent["NAME"][1:-1]), bool).find_or_create()
 
@@ -79,10 +78,7 @@ class UDevObservator(object):
             - Call back observators
         """
         if device.sys_name.startswith("event"):
-            print device.sys_name
-            print device.parent["NAME"]
             xid = XinputWarper().find_xid_by_name(device.parent["NAME"][1:-1])
-            print "xid: %s" % xid
             GConfSettings().key(xid).remove()
             XinputWarper().reset_cache()
 

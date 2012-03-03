@@ -91,7 +91,6 @@ class IndicatorMenu(gtk.Menu):
         Fired method when user click on gtk.CheckMenuItem 'Natural Scrolling'
         """
         enabled = widget.get_active()
-        print enabled
         natural_scrolling_or_device_name = widget.get_label()
 
         # When there is only one detected device
