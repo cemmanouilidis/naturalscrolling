@@ -79,7 +79,6 @@ class InstallAndUpdateDataDirectory(DistUtilsExtra.auto.install_auto):
     def run(self):
         path = self.prefix + "/share/naturalscrolling/"
         values = {"__naturalscrolling_data_directory__": path,
-                  "__appname__": self.distribution.get_name(),
                   "__version__": self.distribution.get_version(),
                   "__license__": self.distribution.get_license(),
                   "__website__": self.distribution.get_url()}
@@ -94,7 +93,7 @@ class InstallAndUpdateDataDirectory(DistUtilsExtra.auto.install_auto):
 ##############################################################################
 
 DistUtilsExtra.auto.setup(
-    name="Natural Scrolling",
+    name="naturalscrolling",
     version="0.5.0",
     license="GPL-3",
     author="Charalampos Emmanouilidis",

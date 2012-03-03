@@ -129,7 +129,7 @@ class IndicatorMenu(gtk.Menu):
     def on_about_clicked(self, widget, data=None):
         gtk.about_dialog_set_url_hook(self.click_website)
 
-        app_name = appliation_name()
+        app_name = "Natural Scrolling"
         about = gtk.AboutDialog()
         about.set_name(app_name)
         about.set_version(appliation_version())

@@ -24,7 +24,6 @@ import os
 
 
 __all__ = [
-    "appliation_name",
     "appliation_version",
     "appliation_website",
     "get_data_file",
@@ -36,17 +35,12 @@ __all__ = [
 # Where your project will look for your data (for instance, images and ui
 # files). By default, this is ../data, relative your trunk layout
 __naturalscrolling_data_directory__ = "../data/"
-__appname__ = "APPNAME"
 __version__ = "VERSION"
 __website__ = "http://webiste"
 
 
 class project_path_not_found(Exception):
     """Raised when we can't find the project directory."""
-
-
-def appliation_name():
-    return __appname__
 
 
 def appliation_version():
