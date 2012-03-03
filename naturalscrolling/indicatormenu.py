@@ -133,9 +133,11 @@ class IndicatorMenu(gtk.Menu):
         about.set_name(app_name)
         about.set_version(appliation_version())
         about.set_icon(
-            gtk.gdk.pixbuf_new_from_file("data/media/naturalscrolling.svg"))
+            gtk.gdk.pixbuf_new_from_file(get_data_path() +
+                                         "/media/naturalscrolling.svg"))
         about.set_logo(
-            gtk.gdk.pixbuf_new_from_file("data/media/naturalscrolling.svg"))
+            gtk.gdk.pixbuf_new_from_file(get_data_path() +
+                                         "/media/naturalscrolling.svg"))
         about.set_website(appliation_website())
         about.set_website_label("%s Website" % app_name)
         about.set_authors(["Charalampos Emmanouilidis <ce@eumorphed.com>",
