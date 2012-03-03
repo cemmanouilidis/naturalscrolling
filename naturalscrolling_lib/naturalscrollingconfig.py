@@ -1,48 +1,60 @@
 # -*- Mode: Python; coding: utf-8; indent-tabs-mode: nil; tab-width: 4 -*-
 ### BEGIN LICENSE
-# Copyright (C) 2011 Eumorphed UG, Charalampos Emmanouilidis <ce@eumorphed.com>
-# 
-# This program is free software: you can redistribute it and/or modify it 
-# under the terms of the GNU General Public License version 3, as published 
-# by the Free Software Foundation.
-# 
-# This program is distributed in the hope that it will be useful, but 
-# WITHOUT ANY WARRANTY; without even the implied warranties of 
-# MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR 
-# PURPOSE.  See the GNU General Public License for more details.
-# 
-# You should have received a copy of the GNU General Public License along 
-# with this program.  If not, see <http://www.gnu.org/licenses/>.
+# Copyright (C) 2011 Eumorphed UG,
+# Charalampos Emmanouilidis <ce@eumorphed.com>
+#
+# This program is free software: you can redistribute it and/or modify it
+# under the terms of the GNU General Public License version 3, as published
+# by the Free Software Foundation
+#
+# This program is distributed in the hope that it will be useful, but
+# WITHOUT ANY WARRANTY; without even the implied warranties of
+# MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
+# PURPOSE.  See the GNU General Public License for more details
+#
+# You should have received a copy of the GNU General Public License along
+# with this program.  If not, see <http://www.gnu.org/licenses/>
 ### END LICENSE
 
 # THIS IS Naturalscrolling CONFIGURATION FILE
 # YOU CAN PUT THERE SOME GLOBAL VALUE
 # Do not touch unless you know what you're doing.
 # you're warned :)
+import os
+
 
 __all__ = [
-    'project_path_not_found',
-    'get_data_file',
-    'get_data_path',
-    'get_auto_start_path',
-    'get_auto_start_file_name',
-    'get_auto_start_file_path'
-    ]
+    "appliation_name",
+    "appliation_version",
+    "appliation_website",
+    "get_data_file",
+    "get_data_path",
+    "get_auto_start_path",
+    "get_auto_start_file_name",
+    "get_auto_start_file_path"]
 
 # Where your project will look for your data (for instance, images and ui
 # files). By default, this is ../data, relative your trunk layout
-__naturalscrolling_data_directory__ = '../data/'
-__license__ = 'GPL-3'
-__version__ = 'VERSION'
+__naturalscrolling_data_directory__ = "../data/"
+__appname__ = "APPNAME"
+__version__ = "VERSION"
+__website__ = "http://webiste"
 
-import os
-
-import gettext
-from gettext import gettext as _
-gettext.textdomain('naturalscrolling')
 
 class project_path_not_found(Exception):
     """Raised when we can't find the project directory."""
+
+
+def appliation_name():
+    return __appname__
+
+
+def appliation_version():
+    return __version__
+
+
+def appliation_website():
+    return __website__
 
 
 def get_data_file(*path_segments):
@@ -73,17 +85,17 @@ def get_data_path():
 
     return abs_data_path
 
+
 def get_auto_start_path():
     """ Retrieve the autostart folder from user's HOME folder """
     return os.getenv("HOME") + "/.config/autostart/"
+
 
 def get_auto_start_file_name():
     """ Return the autostart file for naturalscrolling """
     return "naturalscrolling.desktop"
 
+
 def get_auto_start_file_path():
     """ Return the full path of the autostart file for naturalscrolling """
     return get_auto_start_path() + "/" + get_auto_start_file_name()
-
-def get_version():
-    return __version__
