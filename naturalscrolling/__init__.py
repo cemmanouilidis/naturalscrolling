@@ -16,12 +16,14 @@
 # with this program.  If not, see <http://www.gnu.org/licenses/>
 ### END LICENSE
 
+import sys
 import optparse
 
 from naturalscrolling_lib.naturalscrollingconfig import *
 from naturalscrolling.indicator import Indicator
 from naturalscrolling_lib.gconfsettings import GConfSettings
 from naturalscrolling.xinputwarper import XinputWarper
+from naturalscrolling_lib.debugger import Debugger
 
 
 def main():
@@ -29,7 +31,13 @@ def main():
     parser = optparse.OptionParser(version="%%prog %s" % appliation_version())
     parser.add_option("-v", "--verbose", action="count", dest="verbose",
         help="Show debug messages (-vv debugs naturalscrolling_lib also)")
+    parser.add_option("-d", "--debug", action="store_true",
+        help="Enable debuging")
     (options, args) = parser.parse_args()
+
+    if options.debug:
+        Debugger().execute()
+        sys.exit(0)
 
     # Initialize the GConf client
     GConfSettings().server().on_update_fire(

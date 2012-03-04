@@ -226,3 +226,9 @@ class GConfSettings(object):
             return gconf.VALUE_STRING
         elif type == int:
             return gconf.VALUE_INT
+
+    def keys(self):
+        """
+        Return a list of all keys for natural scrolling
+        """
+        return GConfServer().client.all_entries(GCONF_ROOT_DIR)

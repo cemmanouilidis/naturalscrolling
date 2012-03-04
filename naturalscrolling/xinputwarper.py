@@ -15,6 +15,10 @@ class XinputWarper(object):
             cls._instance.__xinput_list = None
         return cls._instance
 
+    def get_xinput_list(self):
+        return self.__xinput_list
+    xinput_list = property(get_xinput_list)
+
     def enable_natural_scrolling(self, devise_xid, enabled):
         """
         Global method to apply or not Natural Scrolling
