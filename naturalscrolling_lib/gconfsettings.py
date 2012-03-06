@@ -206,7 +206,11 @@ class GConfSettings(object):
         GConfServer().client.recursive_unset(GCONF_ROOT_DIR,
             gconf.UNSET_INCLUDING_SCHEMA_NAMES)
         for device in devices:
-            GConfKey(device.keys()[0], gconf.VALUE_BOOL).find_or_create()
+            if not device.keys()[0]:
+                print ("Warning: The XID of the device with name %s "
+                       "wasn't found" % device.values()[0])
+            else:
+                GConfKey(device.keys()[0], gconf.VALUE_BOOL).find_or_create()
 
     def key(self, key, type=None):
         """
