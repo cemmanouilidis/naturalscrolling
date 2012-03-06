@@ -34,7 +34,9 @@ class Debugger(object):
         print "\t- First XID: %s\n" % XinputWarper().first_xid()
 
         print "\t- Devices:\n\t=========="
-        for device in UDevObservator().gather_devices():
+        devices = UDevObservator().gather_devices()
+        print "\n\t%d device(s) found\n" % len(devices)
+        for device in devices:
             print "\t\tDevice \"%s\" has XID %s" % (device.values()[0],
                                                 device.keys()[0])
 
