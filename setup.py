@@ -56,7 +56,6 @@ def update_config(values={}):
 
 
 def update_desktop_file(datadir):
-
     try:
         fin = file("naturalscrolling.desktop.in", "r")
         fout = file(fin.name + ".new", "w")

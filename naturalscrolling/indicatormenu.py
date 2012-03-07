@@ -137,8 +137,7 @@ class IndicatorMenu(gtk.Menu):
         auto_start_file_exists = os.path.isfile(get_auto_start_file_path())
         if widget.get_active():
             if not auto_start_file_exists:
-                source = open(get_data_path() + "/" + \
-                              get_auto_start_file_name(), "r")
+                source = open(get_auto_start_from_data_file_path(), "r")
                 destination = open(get_auto_start_file_path(), "w")
                 destination.write(source.read())
                 destination.close() and source.close()

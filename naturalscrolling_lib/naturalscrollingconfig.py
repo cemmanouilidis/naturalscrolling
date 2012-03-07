@@ -30,11 +30,12 @@ __all__ = [
     "get_data_path",
     "get_auto_start_path",
     "get_auto_start_file_name",
-    "get_auto_start_file_path"]
+    "get_auto_start_file_path",
+    "get_auto_start_from_data_file_path"]
 
 # Where your project will look for your data (for instance, images and ui
-# files). By default, this is ../data, relative your trunk layout
-__naturalscrolling_data_directory__ = "../data/"
+# files). By default, this is ../, relative your trunk layout
+__naturalscrolling_data_directory__ = "../"
 __version__ = "VERSION"
 __website__ = "http://webiste"
 
@@ -64,7 +65,7 @@ def get_data_file(*path_segments):
 def get_data_path():
     """Retrieve naturalscrolling data path
 
-    This path is by default <naturalscrolling_lib_path>/../data/ in trunk
+    This path is by default <naturalscrolling_lib_path>/../ in trunk
     and /usr/share/naturalscrolling in an installed version but this path
     is specified at installation time.
     """
@@ -88,6 +89,14 @@ def get_auto_start_path():
 def get_auto_start_file_name():
     """ Return the autostart file for naturalscrolling """
     return "naturalscrolling.desktop"
+
+
+def get_auto_start_from_data_file_path():
+    """
+    Return the full path of the autostart file for naturalscrolling
+    from naturalscrolling data folder
+    """
+    return get_data_path() + "/" + get_auto_start_file_name()
 
 
 def get_auto_start_file_path():
