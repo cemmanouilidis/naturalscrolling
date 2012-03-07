@@ -70,7 +70,7 @@ class UDevObservator(object):
             GConfSettings().key(XinputWarper().find_xid_by_name(
                 device.parent["NAME"][1:-1]), bool).find_or_create()
 
-        self.__observator(self.gather_devices_names())
+        self.__observator(self.gather_devices())
 
     def on_device_removed(self, observer, device):
         """
@@ -83,4 +83,4 @@ class UDevObservator(object):
             GConfSettings().key(xid).remove()
             XinputWarper().reset_cache()
 
-        self.__observator(self.gather_devices_names())
+        self.__observator(self.gather_devices())

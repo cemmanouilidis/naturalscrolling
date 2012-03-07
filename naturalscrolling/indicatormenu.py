@@ -54,7 +54,6 @@ class IndicatorMenu(gtk.Menu):
 
         self.append(self.new_separator())
 
-        #quit
         quit = gtk.MenuItem("Quit Natural Scrolling")
         quit.connect("activate", self.on_quit_clicked)
         self.append(quit)
@@ -90,7 +89,8 @@ class IndicatorMenu(gtk.Menu):
             self.__natural_scrolling.show()
             devices_menu = gtk.Menu()
             for device in devices:
-                sub_item = gtk.CheckMenuItem(device)
+                sub_item = gtk.CheckMenuItem(device.values()[0])
+                sub_item.set_tooltip_text(device.keys()[0])
                 devices_menu.append(sub_item)
                 sub_item.connect("toggled", self.on_natural_scrolling_toggled)
                 sub_item.show()
@@ -118,6 +118,14 @@ class IndicatorMenu(gtk.Menu):
             device_xid = XinputWarper().find_xid_by_name(widget.get_label())
 
         GConfSettings().key(device_xid).set_value(enabled)
+
+    def update_check_menu_item(self, xid, enabled):
+        """
+        Retreive the gtk.CheckMenuItem with the text and set the value
+        """
+        for widget in self.__natural_scrolling.get_submenu():
+            if widget.get_tooltip_text() == xid:
+                widget.set_active(enabled)
 
     def on_start_at_login_clicked(self, widget, data=None):
         """

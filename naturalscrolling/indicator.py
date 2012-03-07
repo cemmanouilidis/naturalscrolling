@@ -54,8 +54,13 @@ class Indicator(object):
         udev_observator.start()
 
         # Force the first refresh of the menu in order to populate it.
-        menu.refresh(udev_observator.gather_devices_names_with_xid())
+        menu.refresh(udev_observator.gather_devices())
 
+        # When something change in GConf, push it to the Idicator menu
+        # in order to update the status of the device as checked or unchecked
+        GConfSettings().server().on_update_fire(menu.update_check_menu_item)
+
+        # Initialize GConf in order to be up-to-date with existing devices
         GConfSettings().initialize(udev_observator.gather_devices())
 
     def status_attention(self):

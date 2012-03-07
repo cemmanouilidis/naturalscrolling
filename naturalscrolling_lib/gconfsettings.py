@@ -95,7 +95,9 @@ class GConfServer(object):
 
         key = entry.key
         gconf_key = GConfKey(key, entry.value.type)
+        self.execute_callback_on_observers(key, gconf_key)
 
+    def execute_callback_on_observers(self, key, gconf_key):
         if key in self.__key_update_observators:
             # Execute observer's method passing GConf key value as parameter
             self.__key_update_observators[key](gconf_key.get_value())
@@ -203,14 +205,18 @@ class GConfSettings(object):
         Check if all keys exists
         Create missing keys
         """
-        GConfServer().client.recursive_unset(GCONF_ROOT_DIR,
-            gconf.UNSET_INCLUDING_SCHEMA_NAMES)
         for device in devices:
             if not device.keys()[0]:
                 print ("Warning: The XID of the device with name %s "
                        "wasn't found" % device.values()[0])
             else:
-                GConfKey(device.keys()[0], gconf.VALUE_BOOL).find_or_create()
+                gconf_key = GConfKey(device.keys()[0], gconf.VALUE_BOOL)
+                gconf_key.find_or_create()
+
+                # As you're in the initializing step, if there is at least one
+                # observator, then fire it with all the actual configuration
+                self.server().execute_callback_on_observers(device.keys()[0],
+                                                            gconf_key)
 
     def key(self, key, type=None):
         """
