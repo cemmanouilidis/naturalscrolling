@@ -57,7 +57,7 @@ def update_config(values={}):
 
 def update_desktop_file(datadir):
     try:
-        fin = file("naturalscrolling.desktop.in", "r")
+        fin = file("naturalscrolling.desktop", "r")
         fout = file(fin.name + ".new", "w")
 
         for line in fin:
@@ -69,7 +69,7 @@ def update_desktop_file(datadir):
         fin.close()
         os.rename(fout.name, fin.name)
     except (OSError, IOError):
-        print "ERROR: Can't find naturalscrolling.desktop.in"
+        print "ERROR: Can't find naturalscrolling.desktop"
         sys.exit(1)
 
 
