@@ -1,3 +1,19 @@
+### BEGIN LICENSE
+# Copyright (C) 2011 Guillaume Hain <zedtux@zedroot.org>
+#
+# This program is free software: you can redistribute it and/or modify it
+# under the terms of the GNU General Public License version 3, as published
+# by the Free Software Foundation
+#
+# This program is distributed in the hope that it will be useful, but
+# WITHOUT ANY WARRANTY; without even the implied warranties of
+# MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
+# PURPOSE.  See the GNU General Public License for more details
+#
+# You should have received a copy of the GNU General Public License along
+# with this program.  If not, see <http://www.gnu.org/licenses/>
+### END LICENSE
+
 import gtk
 import appindicator
 
@@ -38,7 +54,7 @@ class Indicator(object):
         udev_observator.start()
 
         # Force the first refresh of the menu in order to populate it.
-        menu.refresh(udev_observator.gather_devices_names())
+        menu.refresh(udev_observator.gather_devices_names_with_xid())
 
         GConfSettings().initialize(udev_observator.gather_devices())
 

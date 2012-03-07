@@ -18,18 +18,6 @@ class Debugger(object):
             if device.sys_name.startswith("event"):
                 print "\t\t", device.sys_name, device.parent["NAME"][1:-1]
 
-        print "\n\tID_INPUT_MOUSE and input devices:\n\t======================="
-        for device in pyudev.Context().list_devices(subsystem="input",
-                                                    ID_INPUT_MOUSE=True):
-            if device.sys_name.startswith("event"):
-                print "\t\t", device.sys_name, device.parent["NAME"][1:-1]
-
-
-        print "\n\tID_INPUT_MOUSE devices:\n\t======================="
-        for device in pyudev.Context().list_devices(ID_INPUT_MOUSE=True):
-            if device.sys_name.startswith("event"):
-                print "\t\t", device.sys_name, device.parent["NAME"][1:-1]
-
         print "\n\n * XinputWarper\n"
         print "\t- First XID: %s\n" % XinputWarper().first_xid()
 

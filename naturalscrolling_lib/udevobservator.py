@@ -38,21 +38,22 @@ class UDevObservator(object):
         """ Define the observator of add and change signals """
         self.__observator = callback
 
-    def gather_devices_names(self):
+    def gather_devices_names_with_xid(self):
         """ Gather and return all devices names """
         devices_names = []
-        for device in pyudev.Context().list_devices(subsystem="input",
-                                                    ID_INPUT_MOUSE=True):
+        for device in pyudev.Context().list_devices(subsystem="input"):
             if device.sys_name.startswith("event"):
-                # [1:-1] means remove double quotes
-                # at the begining and at the end
-                devices_names.append(device.parent["NAME"][1:-1])
+                device_name = device.parent["NAME"][1:-1]
+                if XinputWarper().find_xid_by_name(device_name):
+                    # [1:-1] means remove double quotes
+                    # at the begining and at the end
+                    devices_names.append(device_name)
         return devices_names
 
     def gather_devices(self):
         """ Gather and return all devices (name and XID) """
         devices = []
-        for device_name in self.gather_devices_names():
+        for device_name in self.gather_devices_names_with_xid():
             devices.append(
                 {XinputWarper().find_xid_by_name(device_name): device_name})
         return devices

@@ -1,3 +1,19 @@
+### BEGIN LICENSE
+# Copyright (C) 2011 Guillaume Hain <zedtux@zedroot.org>
+#
+# This program is free software: you can redistribute it and/or modify it
+# under the terms of the GNU General Public License version 3, as published
+# by the Free Software Foundation
+#
+# This program is distributed in the hope that it will be useful, but
+# WITHOUT ANY WARRANTY; without even the implied warranties of
+# MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
+# PURPOSE.  See the GNU General Public License for more details
+#
+# You should have received a copy of the GNU General Public License along
+# with this program.  If not, see <http://www.gnu.org/licenses/>
+### END LICENSE
+
 import os
 import re
 
@@ -67,7 +83,7 @@ class XinputWarper(object):
                                            "| grep -v '\[master '")).read()
 
         if name:
-            return re.search(r'(.*%s.*)' % re.escape(name),
-                self.__xinput_list).group(1)
-        else:
-            return self.__xinput_list
+            res = re.search(r'(.*%s.*)' % re.escape(name), self.__xinput_list)
+            if res:
+                return res.group(1)
+        return self.__xinput_list
