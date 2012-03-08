@@ -8,15 +8,20 @@ class Debugger(object):
 
     def execute(self):
         print " * PyUDev\n"
-        print "\tAll devices:\n\t============"
-        for device in pyudev.Context().list_devices():
+        print "\n\tInput devices:\n\t=============="
+        devices = pyudev.Context().list_devices(subsystem="input")
+        for device in devices:
             if device.sys_name.startswith("event"):
                 print "\t\t", device.sys_name, device.parent["NAME"][1:-1]
 
-        print "\n\tInput devices:\n\t=============="
-        for device in pyudev.Context().list_devices(subsystem="input"):
+        print "\n\tInput devices keys:\n\t=============="
+        for device in devices:
+            device_keys = ""
             if device.sys_name.startswith("event"):
-                print "\t\t", device.sys_name, device.parent["NAME"][1:-1]
+                if device.parent.keys():
+                    for key in device.parent.keys():
+                        device_keys += "{%s: %s}," % (key, device.parent[key])
+                    print "%s => %s" % (device.sys_name, device_keys)
 
         print "\n\n * XinputWarper\n"
         print "\t- First XID: %s\n" % XinputWarper().first_xid()

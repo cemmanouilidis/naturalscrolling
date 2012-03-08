@@ -123,6 +123,10 @@ class IndicatorMenu(gtk.Menu):
         """
         Retreive the gtk.CheckMenuItem with the text and set the value
         """
+        if not self.__natural_scrolling or \
+           not self.__natural_scrolling.get_submenu():
+            return
+
         for widget in self.__natural_scrolling.get_submenu():
             if widget.get_tooltip_text() == xid:
                 widget.set_active(enabled)
