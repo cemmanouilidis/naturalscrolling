@@ -21,7 +21,6 @@
 
 import os
 import sys
-import glob
 
 try:
     import DistUtilsExtra.auto
@@ -29,7 +28,8 @@ except ImportError:
     print >> sys.stderr, ("To build naturalscrolling you need "
                           "https://launchpad.net/python-distutils-extra")
     sys.exit(1)
-assert DistUtilsExtra.auto.__version__ >= "2.18", "needs DistUtilsExtra.auto >= 2.18"
+assert DistUtilsExtra.auto.\
+        __version__ >= "2.18", "need DistUtilsExtra >= 2.18"
 
 
 def update_config(values={}):
@@ -103,4 +103,8 @@ DistUtilsExtra.auto.setup(
                       "direction of scrolling to be toggled"),
     url="https://github.com/cemmanouilidis/naturalscrolling",
     cmdclass={"install": InstallAndUpdateDataDirectory},
-    data_files=[("share/naturalscrolling/", glob.glob("./media/*"))])
+    data_files=[("share/naturalscrolling/", ["naturalscrolling.desktop"]),
+                ("share/naturalscrolling/media", ["media/Screenshot.png",
+                    "media/natural-scrolling-status-activated.png",
+                    "media/natural-scrolling-status-not-activated.png",
+                    "media/naturalscrolling.svg"])])
