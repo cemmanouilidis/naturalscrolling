@@ -101,4 +101,5 @@ DistUtilsExtra.auto.setup(
     long_description=("Natural Scrolling adds a menu bar item allowing the "
                       "direction of scrolling to be toggled"),
     url="https://github.com/cemmanouilidis/naturalscrolling",
-    cmdclass={"install": InstallAndUpdateDataDirectory})
+    cmdclass={"install": InstallAndUpdateDataDirectory},
+    data_files=[("share/naturalscrolling/", "media")])
