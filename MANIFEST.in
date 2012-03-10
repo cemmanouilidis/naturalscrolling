@@ -1,2 +1,2 @@
 include naturalscrolling.desktop
-recursive-include media
+recursive-include media *.png *.svg
