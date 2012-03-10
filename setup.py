@@ -21,6 +21,7 @@
 
 import os
 import sys
+import glob
 
 try:
     import DistUtilsExtra.auto
@@ -102,4 +103,4 @@ DistUtilsExtra.auto.setup(
                       "direction of scrolling to be toggled"),
     url="https://github.com/cemmanouilidis/naturalscrolling",
     cmdclass={"install": InstallAndUpdateDataDirectory},
-    data_files=[("share/naturalscrolling/", "media")])
+    data_files=[("share/naturalscrolling/", glob.glob("./media/*"))])
