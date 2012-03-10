@@ -1,1 +1,2 @@
 include naturalscrolling.desktop
+recursive-include media
