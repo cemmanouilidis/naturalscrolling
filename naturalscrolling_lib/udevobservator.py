@@ -43,11 +43,15 @@ class UDevObservator(object):
         devices_names = []
         for device in pyudev.Context().list_devices(subsystem="input"):
             if device.sys_name.startswith("event"):
-                device_name = device.parent["NAME"][1:-1]
-                if XinputWarper().find_xid_by_name(device_name):
-                    # [1:-1] means remove double quotes
-                    # at the begining and at the end
-                    devices_names.append(device_name)
+                try:
+                    device_name = device.parent["NAME"][1:-1]
+                    if XinputWarper().find_xid_by_name(device_name):
+                        # [1:-1] means remove double quotes
+                        # at the begining and at the end
+                        devices_names.append(device_name)
+                except KeyError:
+                    print ("Warning: The device parent with sys_name %s "
+                           "doesn't have a NAME key." % device.sys_name)
         return devices_names
 
     def gather_devices(self):
