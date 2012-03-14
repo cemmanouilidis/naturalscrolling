@@ -103,7 +103,7 @@ DistUtilsExtra.auto.setup(
                       "direction of scrolling to be toggled"),
     url="https://github.com/cemmanouilidis/naturalscrolling",
     cmdclass={"install": InstallAndUpdateDataDirectory},
-    data_files=[("share/naturalscrolling/", ["naturalscrolling.desktop"]),
+    data_files=[("/usr/share/applications/", ["naturalscrolling.desktop"]),
                 ("share/naturalscrolling/media", ["media/Screenshot.png",
                     "media/natural-scrolling-status-activated.png",
                     "media/natural-scrolling-status-not-activated.png",
