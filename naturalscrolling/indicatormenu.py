@@ -59,12 +59,21 @@ class IndicatorMenu(gtk.Menu):
         self.append(quit)
         quit.show()
 
+        self.sync_checked_items_from_gconf()
+
         self.show()
 
     def new_separator(self):
         seperator = gtk.SeparatorMenuItem()
         seperator.show()
         return seperator
+
+    def sync_checked_items_from_gconf(self):
+        """
+        Check all gtk.CheckMenuItem depending on GConf keys values
+        """
+        for xid in GConfSettings().activated_devices_xids():
+            self.update_check_menu_item(xid, True)
 
     def refresh(self, devices):
         """
@@ -81,6 +90,7 @@ class IndicatorMenu(gtk.Menu):
 
         if len(devices) == 1:
             self.__natural_scrolling = gtk.CheckMenuItem("Natural Scrolling")
+            self.__natural_scrolling.set_tooltip_text(devices[0].keys()[0])
             self.__natural_scrolling.connect("toggled",
                 self.on_natural_scrolling_toggled)
             self.__natural_scrolling.show()
@@ -98,6 +108,8 @@ class IndicatorMenu(gtk.Menu):
             self.__natural_scrolling.set_submenu(devices_menu)
 
         self.insert(self.__natural_scrolling, 0)
+
+        self.sync_checked_items_from_gconf()
 
     def on_quit_clicked(self, widget):
         gtk.main_quit()
@@ -123,13 +135,16 @@ class IndicatorMenu(gtk.Menu):
         """
         Retreive the gtk.CheckMenuItem with the text and set the value
         """
-        if not self.__natural_scrolling or \
-           not self.__natural_scrolling.get_submenu():
+        if not self.__natural_scrolling:
             return
 
-        for widget in self.__natural_scrolling.get_submenu():
-            if widget.get_tooltip_text() == xid:
-                widget.set_active(enabled)
+        submenu = self.__natural_scrolling.get_submenu()
+        if submenu:
+            for widget in self.__natural_scrolling.get_submenu():
+                if widget.get_tooltip_text() == xid:
+                    widget.set_active(enabled)
+        else:
+            self.__natural_scrolling.set_active(enabled)
 
     def on_start_at_login_clicked(self, widget, data=None):
         """

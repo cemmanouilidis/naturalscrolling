@@ -56,7 +56,7 @@ class Indicator(object):
         # Force the first refresh of the menu in order to populate it.
         menu.refresh(udev_observator.gather_devices())
 
-        # When something change in GConf, push it to the Idicator menu
+        # When something change in GConf, push it to the Indicator menu
         # in order to update the status of the device as checked or unchecked
         GConfSettings().server().on_update_fire(menu.update_check_menu_item)
 

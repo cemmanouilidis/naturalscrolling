@@ -106,8 +106,17 @@ class GConfServer(object):
             for observator in self.__keys_update_observators:
                 observator(gconf_key.name, gconf_key.get_value())
 
+    def entries(self):
+        """
+        Return a list of all entries from naturalscrolling root path
+        """
+        return self.client.all_entries("/apps/naturalscrolling")
+
 
 class GConfKey(object):
+
+    class KeyDoesntExits(Exception):
+        pass
 
     def __init__(self, key, type=None):
         self.__gconf = GConfServer().client
@@ -123,7 +132,10 @@ class GConfKey(object):
         if type:
             self.__type = type
         else:
-            self.__type = self.__gconf.get(self.__key).type
+            try:
+                self.__type = self.__gconf.get(self.__key).type
+            except AttributeError:
+                raise GConfKey.KeyDoesntExits()
 
     def get_name(self):
         return self.__name
@@ -242,3 +254,19 @@ class GConfSettings(object):
         Return a list of all keys for natural scrolling
         """
         return GConfServer().client.all_entries(GCONF_ROOT_DIR)
+
+    def activated_devices_xids(self):
+        """
+        Return a list of all XIDs of devices where naturalscrolling was
+        registered as activated.
+        """
+        activated_devices_xids = []
+        for entry in self.server().entries():
+            try:
+                gconf_key = GConfKey(entry.key)
+                if gconf_key.get_value():
+                    activated_devices_xids.append(gconf_key.name)
+            except GConfKey.KeyDoesntExits:
+                # Pass the removed key
+                pass
+        return activated_devices_xids

@@ -41,17 +41,27 @@ class UDevObservator(object):
     def gather_devices_names_with_xid(self):
         """ Gather and return all devices names """
         devices_names = []
-        for device in pyudev.Context().list_devices(subsystem="input"):
-            if device.sys_name.startswith("event"):
-                try:
-                    device_name = device.parent["NAME"][1:-1]
-                    if XinputWarper().find_xid_by_name(device_name):
-                        # [1:-1] means remove double quotes
-                        # at the begining and at the end
-                        devices_names.append(device_name)
-                except KeyError:
-                    print ("Warning: The device parent with sys_name %s "
-                           "doesn't have a NAME key." % device.sys_name)
+        devices = pyudev.Context().list_devices(subsystem="input").__iter__()
+        while True:
+            try:
+                device = devices.next()
+                if device.sys_name.startswith("event"):
+                    try:
+                        device_name = device.parent["NAME"][1:-1]
+                        if XinputWarper().find_xid_by_name(device_name):
+                            # [1:-1] means remove double quotes
+                            # at the begining and at the end
+                            devices_names.append(device_name)
+                    except KeyError:
+                        print ("Warning: The device parent with sys_name %s "
+                               "doesn't have a NAME key." % device.sys_name)
+            except pyudev.device.DeviceNotFoundAtPathError:
+                # next() raise this exception when we try to open a removed
+                # device
+                pass
+            except StopIteration:
+                break
+
         return devices_names
 
     def gather_devices(self):
@@ -83,8 +93,13 @@ class UDevObservator(object):
             - Call back observators
         """
         if device.sys_name.startswith("event"):
-            xid = XinputWarper().find_xid_by_name(device.parent["NAME"][1:-1])
-            GConfSettings().key(xid).remove()
+            try:
+                device_name = device.parent["NAME"][1:-1]
+                xid = XinputWarper().find_xid_by_name(device_name)
+                GConfSettings().key(xid).remove()
+            except KeyError:
+                print ("Warning: The device parent with sys_name %s "
+                       "doesn't have a NAME key." % device.sys_name)
             XinputWarper().reset_cache()
 
         self.__observator(self.gather_devices())
