@@ -55,7 +55,7 @@ class UDevObservator(object):
                     except KeyError:
                         print ("Warning: The device parent with sys_name %s "
                                "doesn't have a NAME key." % device.sys_name)
-            except pyudev.device.DeviceNotFoundAtPathError:
+            except pyudev.DeviceNotFoundAtPathError:
                 # next() raise this exception when we try to open a removed
                 # device
                 pass
