@@ -94,9 +94,10 @@ def get_auto_start_file_name():
 def get_auto_start_from_data_file_path():
     """
     Return the full path of the autostart file for naturalscrolling
-    from naturalscrolling data folder
+
+    The path is hardcoded as it can't be anything else.
     """
-    return get_data_path() + "/" + get_auto_start_file_name()
+    return "/usr/share/applications/" + get_auto_start_file_name()
 
 
 def get_auto_start_file_path():
