@@ -1,0 +1,62 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR ORGANIZATION
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2012-05-09 21:03+CEST\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: ENCODING\n"
+"Generated-By: pygettext.py 1.5\n"
+
+
+#: naturalscrolling/__init__.py:33
+msgid "BrainZ"
+msgstr ""
+
+#: naturalscrolling/__init__.py:37
+msgid "Show debug messages (-vv debugs naturalscrolling_lib also)"
+msgstr ""
+
+#: naturalscrolling/__init__.py:39
+msgid "Enable debuging"
+msgstr ""
+
+#: naturalscrolling/indicatormenu.py:38
+msgid "Start at login"
+msgstr ""
+
+#: naturalscrolling/indicatormenu.py:45
+msgid "Preferences"
+msgstr ""
+
+#: naturalscrolling/indicatormenu.py:50
+msgid "About"
+msgstr ""
+
+#: naturalscrolling/indicatormenu.py:57
+msgid "Quit Natural Scrolling"
+msgstr ""
+
+#: naturalscrolling_lib/gconfsettings.py:161
+msgid "Can't read the value for type '%s'"
+msgstr ""
+
+#: naturalscrolling_lib/gconfsettings.py:175
+msgid "Can't write the value '%s' for type '%s'"
+msgstr ""
+
+#: naturalscrolling_lib/gconfsettings.py:222
+msgid "Warning: The XID of the device with name %s wasn't found"
+msgstr ""
+
+#: naturalscrolling_lib/udevobservator.py:56
+#: naturalscrolling_lib/udevobservator.py:101
+msgid "Warning: The device parent with sys_name %s doesn't have a NAME key."
+msgstr ""
+

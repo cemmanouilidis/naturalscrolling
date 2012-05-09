@@ -35,26 +35,26 @@ class IndicatorMenu(gtk.Menu):
         self.append(self.new_separator())
 
         menu_sub = gtk.Menu()
-        start_at_login = gtk.CheckMenuItem("Start at login")
+        start_at_login = gtk.CheckMenuItem(_("Start at login"))
         if os.path.isfile(get_auto_start_file_path()):
             start_at_login.set_active(True)
         start_at_login.connect("activate", self.on_start_at_login_clicked)
         menu_sub.append(start_at_login)
         start_at_login.show()
 
-        preferences = gtk.MenuItem("Preferences")
+        preferences = gtk.MenuItem(_("Preferences"))
         preferences.set_submenu(menu_sub)
         self.append(preferences)
         preferences.show()
 
-        about = gtk.MenuItem("About")
+        about = gtk.MenuItem(_("About"))
         about.connect("activate", self.on_about_clicked)
         self.append(about)
         about.show()
 
         self.append(self.new_separator())
 
-        quit = gtk.MenuItem("Quit Natural Scrolling")
+        quit = gtk.MenuItem(_("Quit Natural Scrolling"))
         quit.connect("activate", self.on_quit_clicked)
         self.append(quit)
         quit.show()

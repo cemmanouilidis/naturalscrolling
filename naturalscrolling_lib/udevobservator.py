@@ -53,8 +53,8 @@ class UDevObservator(object):
                             # at the begining and at the end
                             devices_names.append(device_name)
                     except KeyError:
-                        print ("Warning: The device parent with sys_name %s "
-                               "doesn't have a NAME key." % device.sys_name)
+                        print (_("Warning: The device parent with sys_name %s"
+                               " doesn't have a NAME key.") % device.sys_name)
             except pyudev.DeviceNotFoundAtPathError:
                 # next() raise this exception when we try to open a removed
                 # device
@@ -98,8 +98,8 @@ class UDevObservator(object):
                 xid = XinputWarper().find_xid_by_name(device_name)
                 GConfSettings().key(xid).remove()
             except KeyError:
-                print ("Warning: The device parent with sys_name %s "
-                       "doesn't have a NAME key." % device.sys_name)
+                print (_("Warning: The device parent with sys_name %s doesn't"
+                       " have a NAME key.") % device.sys_name)
             XinputWarper().reset_cache()
 
         self.__observator(self.gather_devices())

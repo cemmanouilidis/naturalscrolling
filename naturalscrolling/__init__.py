@@ -18,6 +18,8 @@
 
 import sys
 import optparse
+import gettext
+gettext.install("naturalscrolling")
 
 from naturalscrolling_lib.naturalscrollingconfig import *
 from naturalscrolling.indicator import Indicator
@@ -28,11 +30,13 @@ from naturalscrolling_lib.debugger import Debugger
 
 def main():
     """Support for command line options"""
+    print _("BrainZ")
+
     parser = optparse.OptionParser(version="%%prog %s" % appliation_version())
     parser.add_option("-v", "--verbose", action="count", dest="verbose",
-        help="Show debug messages (-vv debugs naturalscrolling_lib also)")
+        help=_("Show debug messages (-vv debugs naturalscrolling_lib also)"))
     parser.add_option("-d", "--debug", action="store_true",
-        help="Enable debuging")
+        help=_("Enable debuging"))
     (options, args) = parser.parse_args()
 
     if options.debug:

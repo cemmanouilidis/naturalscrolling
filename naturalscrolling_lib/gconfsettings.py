@@ -158,7 +158,7 @@ class GConfKey(object):
         elif self.__type == gconf.VALUE_INT:
             return self.__gconf.get_int(self.__key)
         else:
-            raise InvalidKeyType("Can't read the value for type '%s'" %
+            raise InvalidKeyType(_("Can't read the value for type '%s'") %
                                  self.__type)
 
     def set_value(self, value):
@@ -172,8 +172,8 @@ class GConfKey(object):
         elif self.__type == gconf.VALUE_INT:
             self.__gconf.set_int(self.__key, value)
         else:
-            raise InvalidKeyType("Can't write the value '%s' for type '%s'" %
-                                 (value, self.__type))
+            raise InvalidKeyType(_("Can't write the value '%s'"
+                                   " for type '%s'") % (value, self.__type))
 
     def is_enable(self):
         return self.__value == True
@@ -219,8 +219,8 @@ class GConfSettings(object):
         """
         for device in devices:
             if not device.keys()[0]:
-                print ("Warning: The XID of the device with name %s "
-                       "wasn't found" % device.values()[0])
+                print (_("Warning: The XID of the device with name %s "
+                       "wasn't found") % device.values()[0])
             else:
                 gconf_key = GConfKey(device.keys()[0], gconf.VALUE_BOOL)
                 gconf_key.find_or_create()

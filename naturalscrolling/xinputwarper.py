@@ -49,7 +49,7 @@ class XinputWarper(object):
             map = map.replace("5 4", "4 5")
             map = map.replace("7 6", "6 7")
 
-        os.system("xinput set-button-map \"%s\" %s" %(devise_xid, map))
+        os.system("xinput set-button-map \"%s\" %s" % (devise_xid, map))
 
     def find_xid_by_name(self, name):
         """
