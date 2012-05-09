@@ -25,3 +25,7 @@ sudo apt-get install naturalscrolling
 
 ![Natural Scrolling in Ubuntu with Ambiance theme](http://ubuntuone.com/3SVQnBsqU6N47eC73gB1hz)
 ![Natural Scrolling in Ubuntu with Radiance theme](http://ubuntuone.com/6K6Wmi0V42XOafvZ4JWG9P)
+
+## Help on Translation
+
+If you want to fix or add a new translation, you have to login to [launchpad.net](https://launchpad.net) and go to [the NaturalScrolling translation page](https://translations.launchpad.net/naturalscrolling/trunk).
