@@ -14,11 +14,6 @@ msgstr ""
 "Content-Transfer-Encoding: ENCODING\n"
 "Generated-By: pygettext.py 1.5\n"
 
-
-#: naturalscrolling/__init__.py:33
-msgid "BrainZ"
-msgstr ""
-
 #: naturalscrolling/__init__.py:37
 msgid "Show debug messages (-vv debugs naturalscrolling_lib also)"
 msgstr ""
