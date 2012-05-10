@@ -29,3 +29,8 @@ sudo apt-get install naturalscrolling
 ## Help on Translation
 
 If you want to fix or add a new translation, you have to login to [launchpad.net](https://launchpad.net) and go to [the NaturalScrolling translation page](https://translations.launchpad.net/naturalscrolling/trunk).
+
+NaturalScrolling translations are:
+
+ - English
+ - French
