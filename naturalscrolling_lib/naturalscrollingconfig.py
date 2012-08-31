@@ -36,16 +36,15 @@ __all__ = [
 
 # Where your project will look for your data (for instance, images and ui
 # files). By default, this is ../, relative your trunk layout
-__naturalscrolling_data_directory__ = """../"""
+__naturalscrolling_data_directory__ = "../"
 # Where your project will look for translation catalogs
-__naturalscrolling_locale_directory__ = """../locales"""
-__version__ = """VERSION"""
-__website__ = """http://webiste"""
+__naturalscrolling_locale_directory__ = "../locales"
+__version__ = "VERSION"
+__website__ = "http://webiste"
 
 
 class project_path_not_found(Exception):
     """Raised when we can't find the project directory."""
-
 
 def appliation_version():
     return __version__
@@ -79,6 +78,7 @@ def get_data_path():
 
     abs_data_path = os.path.abspath(path)
     if not os.path.exists(abs_data_path):
+        print "ERROR: Unable to access the project path: %s" % abs_data_path
         raise project_path_not_found
 
     return abs_data_path
