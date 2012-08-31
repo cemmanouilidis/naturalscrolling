@@ -42,7 +42,7 @@ def update_config(values={}):
             fields = line.split(" = ") # Separate variable from value
             if fields[0] in values:
                 oldvalues[fields[0]] = fields[1].strip()
-                line = "%s = \"%s\"\n" % (fields[0], values[fields[0]])
+                line = "%s = \"%s\"\n" % (fields[0], values[fields[0]].strip('"'))
             fout.write(line)
 
         fout.flush()
