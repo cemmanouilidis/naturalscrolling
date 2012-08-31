@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2012-05-09 21:03+CEST\n"
+"POT-Creation-Date: 2012-08-31 11:40+CEST\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -15,15 +15,11 @@ msgstr ""
 "Generated-By: pygettext.py 1.5\n"
 
 
-#: naturalscrolling/__init__.py:33
-msgid "BrainZ"
-msgstr ""
-
-#: naturalscrolling/__init__.py:37
+#: naturalscrolling/__init__.py:35
 msgid "Show debug messages (-vv debugs naturalscrolling_lib also)"
 msgstr ""
 
-#: naturalscrolling/__init__.py:39
+#: naturalscrolling/__init__.py:37
 msgid "Enable debuging"
 msgstr ""
 

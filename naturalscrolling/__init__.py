@@ -30,8 +30,6 @@ from naturalscrolling_lib.debugger import Debugger
 
 def main():
     """Support for command line options"""
-    print _("BrainZ")
-
     parser = optparse.OptionParser(version="%%prog %s" % appliation_version())
     parser.add_option("-v", "--verbose", action="count", dest="verbose",
         help=_("Show debug messages (-vv debugs naturalscrolling_lib also)"))
