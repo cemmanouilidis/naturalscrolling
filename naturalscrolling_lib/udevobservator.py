@@ -77,12 +77,17 @@ class UDevObservator(object):
         """
         Fired method when a new device is added to udev
             - Create key in GConf for this new device
+            - Apply natural scrolling if was enabled [issue #37]
             - Call back observators
         """
         if device.sys_name.startswith("event"):
             XinputWarper().reset_cache()
-            GConfSettings().key(XinputWarper().find_xid_by_name(
-                device.parent["NAME"][1:-1]), bool).find_or_create()
+            xid = XinputWarper().find_xid_by_name(device.parent["NAME"][1:-1])
+            # Register the device (create it if needed)
+            gconf_key = GConfSettings().key(xid, bool)
+            gconf_key.find_or_create()
+            # Apply Natural scrolling if was enabled previously
+            XinputWarper().enable_natural_scrolling(xid, gconf_key.get_value())
 
         self.__observator(self.gather_devices())
 
