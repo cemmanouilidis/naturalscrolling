@@ -31,7 +31,7 @@ from naturalscrolling_lib.debugger import Debugger
 def main():
     """Support for command line options"""
     parser = argparse.ArgumentParser(prog="Natural Scrolling", description=_("Natural Scrolling is a GNOME Applet allowing you to reverse the direction of scrolling"), add_help=False)
-    parser.add_argument("--version", action="version", version="%(prog)s 2.0",
+    parser.add_argument("--version", action="version", version="NaturalScrolling %s" % appliation_version(),
         help=_("Show naturalscrolling's version number and exit"))
     parser.add_argument("--help", "-h", action="help",
         help=_("Show this help message and exit"))
