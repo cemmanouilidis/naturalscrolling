@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2012-05-09 21:03+CEST\n"
+"POT-Creation-Date: 2012-08-31 13:27+CEST\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -14,11 +14,24 @@ msgstr ""
 "Content-Transfer-Encoding: ENCODING\n"
 "Generated-By: pygettext.py 1.5\n"
 
+
+#: naturalscrolling/__init__.py:33
+msgid "Natural Scrolling is a GNOME Applet allowing you to reverse the direction of scrolling"
+msgstr ""
+
+#: naturalscrolling/__init__.py:35
+msgid "Show naturalscrolling's version number and exit"
+msgstr ""
+
 #: naturalscrolling/__init__.py:37
-msgid "Show debug messages (-vv debugs naturalscrolling_lib also)"
+msgid "Show this help message and exit"
 msgstr ""
 
 #: naturalscrolling/__init__.py:39
+msgid "Show debug messages (-vv debugs naturalscrolling_lib also)"
+msgstr ""
+
+#: naturalscrolling/__init__.py:41
 msgid "Enable debuging"
 msgstr ""
 
@@ -51,7 +64,7 @@ msgid "Warning: The XID of the device with name %s wasn't found"
 msgstr ""
 
 #: naturalscrolling_lib/udevobservator.py:56
-#: naturalscrolling_lib/udevobservator.py:101
+#: naturalscrolling_lib/udevobservator.py:106
 msgid "Warning: The device parent with sys_name %s doesn't have a NAME key."
 msgstr ""
 

@@ -17,9 +17,9 @@
 ### END LICENSE
 
 import sys
-import optparse
+import argparse
 import gettext
-gettext.install("naturalscrolling")
+gettext.install("naturalscrolling", "./locales")
 
 from naturalscrolling_lib.naturalscrollingconfig import *
 from naturalscrolling.indicator import Indicator
@@ -30,14 +30,18 @@ from naturalscrolling_lib.debugger import Debugger
 
 def main():
     """Support for command line options"""
-    parser = optparse.OptionParser(version="%%prog %s" % appliation_version())
-    parser.add_option("-v", "--verbose", action="count", dest="verbose",
+    parser = argparse.ArgumentParser(prog="Natural Scrolling", description=_("Natural Scrolling is a GNOME Applet allowing you to reverse the direction of scrolling"), add_help=False)
+    parser.add_argument("--version", action="version", version="%(prog)s 2.0",
+        help=_("Show naturalscrolling's version number and exit"))
+    parser.add_argument("--help", "-h", action="help",
+        help=_("Show this help message and exit"))
+    parser.add_argument("--verbose", "-v", action="count", dest="verbose",
         help=_("Show debug messages (-vv debugs naturalscrolling_lib also)"))
-    parser.add_option("-d", "--debug", action="store_true",
+    parser.add_argument("--debug", "-d", action="store_true",
         help=_("Enable debuging"))
-    (options, args) = parser.parse_args()
+    args = parser.parse_args()
 
-    if options.debug:
+    if args.debug:
         Debugger().execute()
         sys.exit(0)
 
