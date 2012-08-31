@@ -77,13 +77,15 @@ def update_desktop_file(datadir):
 class InstallAndUpdateDataDirectory(DistUtilsExtra.auto.install_auto):
 
     def run(self):
-        path = self.prefix + "/share/naturalscrolling/"
-        values = {"__naturalscrolling_data_directory__": path,
+        data_path = self.prefix + "/share/naturalscrolling/"
+        locale_path = self.prefix + "/share/locale/"
+        values = {"__naturalscrolling_data_directory__": data_path,
+                  "__naturalscrolling_locale_directory__": locale_path,
                   "__version__": self.distribution.get_version(),
                   "__license__": self.distribution.get_license(),
                   "__website__": self.distribution.get_url()}
         previous_values = update_config(values)
-        update_desktop_file(path)
+        update_desktop_file(data_path)
         DistUtilsExtra.auto.install_auto.run(self)
         update_config(previous_values)
 
@@ -107,4 +109,10 @@ DistUtilsExtra.auto.setup(
                 ("share/naturalscrolling/media", ["media/Screenshot.png",
                     "media/natural-scrolling-status-activated.png",
                     "media/natural-scrolling-status-not-activated.png",
-                    "media/naturalscrolling.svg"])])
+                    "media/naturalscrolling.svg"]),
+                ("share/locale/es_ES/LC_MESSAGES", ["locales/es_ES/LC_MESSAGES/naturalscrolling.mo"]),
+                ("share/locale/fr_FR/LC_MESSAGES", ["locales/fr_FR/LC_MESSAGES/naturalscrolling.mo"]),
+                ("share/locale/it_IT/LC_MESSAGES", ["locales/it_IT/LC_MESSAGES/naturalscrolling.mo"]),
+                ("share/locale/pt_BR/LC_MESSAGES", ["locales/pt_BR/LC_MESSAGES/naturalscrolling.mo"])
+                ]
+)

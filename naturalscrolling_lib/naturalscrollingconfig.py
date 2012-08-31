@@ -28,6 +28,7 @@ __all__ = [
     "appliation_website",
     "get_data_file",
     "get_data_path",
+    "get_locale_path",
     "get_auto_start_path",
     "get_auto_start_file_name",
     "get_auto_start_file_path",
@@ -35,9 +36,11 @@ __all__ = [
 
 # Where your project will look for your data (for instance, images and ui
 # files). By default, this is ../, relative your trunk layout
-__naturalscrolling_data_directory__ = "../"
-__version__ = "VERSION"
-__website__ = "http://webiste"
+__naturalscrolling_data_directory__ = """../"""
+# Where your project will look for translation catalogs
+__naturalscrolling_locale_directory__ = """../locales"""
+__version__ = """VERSION"""
+__website__ = """http://webiste"""
 
 
 class project_path_not_found(Exception):
@@ -79,6 +82,20 @@ def get_data_path():
         raise project_path_not_found
 
     return abs_data_path
+
+def get_locale_path():
+    """Retrieve naturalscrolling locale path
+
+    This path is by default <naturalscrolling_lib_path>/../locales in trunk
+    and /usr/share/locale in an installed version but this path
+    is specified at installation time.
+    """
+
+    # Get pathname absolute or relative.
+    path = os.path.join(
+        os.path.dirname(__file__), __naturalscrolling_locale_directory__)
+
+    return os.path.abspath(path)
 
 
 def get_auto_start_path():

@@ -19,7 +19,6 @@
 import sys
 import argparse
 import gettext
-gettext.install("naturalscrolling", "./locales")
 
 from naturalscrolling_lib.naturalscrollingconfig import *
 from naturalscrolling.indicator import Indicator
@@ -27,6 +26,7 @@ from naturalscrolling_lib.gconfsettings import GConfSettings
 from naturalscrolling.xinputwarper import XinputWarper
 from naturalscrolling_lib.debugger import Debugger
 
+gettext.install("naturalscrolling", get_locale_path())
 
 def main():
     """Support for command line options"""
