@@ -88,6 +88,7 @@ class InstallAndUpdateDataDirectory(DistUtilsExtra.auto.install_auto):
         update_desktop_file(data_path)
         DistUtilsExtra.auto.install_auto.run(self)
         update_config(previous_values)
+        update_desktop_file("")
 
 
 ##############################################################################
