@@ -27,7 +27,7 @@ class XinputWarper(object):
             cls._instance = super(XinputWarper, cls).__new__(cls, *args,
                                                                  **kwargs)
             cls._instance.__xinput_list_pattern = re.compile(
-                r'\s+([A-z0-9\s\-\(\)\/\.\:]+)\s+id=(\d+)\s+\[slave\s+pointer.*\]')
+                r'\s+([A-z0-9\s\-\(\)\/\.\:\']+)\s+id=(\d+)\s+\[slave\s+pointer.*\]')
             cls._instance.__xinput_list = None
         return cls._instance
 

@@ -135,7 +135,8 @@ class GConfKey(object):
             try:
                 self.__type = self.__gconf.get(self.__key).type
             except AttributeError:
-                raise GConfKey.KeyDoesntExits()
+                raise GConfKey.KeyDoesntExits(_("Can't find the key '%s'") %
+                                              self.__key)
 
     def get_name(self):
         return self.__name
