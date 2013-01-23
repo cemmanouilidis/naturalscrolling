@@ -103,7 +103,9 @@ class UDevObservator(object):
             try:
                 device_name = device.parent["NAME"][1:-1]
                 xid = XinputWarper().find_xid_by_name(device_name)
-                GConfSettings().key(xid).remove()
+                # Continue only when an XID has been found (issue #41)
+                if xid:
+                    GConfSettings().key(xid).remove()
             except KeyError:
                 print (_("Warning: The device parent with sys_name %s doesn't"
                        " have a NAME key.") % device.sys_name)
