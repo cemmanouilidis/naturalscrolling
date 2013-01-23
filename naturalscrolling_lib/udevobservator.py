@@ -83,13 +83,15 @@ class UDevObservator(object):
         if device.sys_name.startswith("event"):
             XinputWarper().reset_cache()
             xid = XinputWarper().find_xid_by_name(device.parent["NAME"][1:-1])
-            # Register the device (create it if needed)
-            gconf_key = GConfSettings().key(xid, bool)
-            gconf_key.find_or_create()
-            # Apply Natural scrolling if was enabled previously
-            XinputWarper().enable_natural_scrolling(xid, gconf_key.get_value())
+            # Continue only when an XID has been found (issue #41)
+            if xid:
+                # Register the device (create it if needed)
+                gconf_key = GConfSettings().key(xid, bool)
+                gconf_key.find_or_create()
+                # Apply Natural scrolling if was enabled previously
+                XinputWarper().enable_natural_scrolling(xid, gconf_key.get_value())
 
-        self.__observator(self.gather_devices())
+                self.__observator(self.gather_devices())
 
     def on_device_removed(self, observer, device):
         """
