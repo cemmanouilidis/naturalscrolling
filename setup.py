@@ -97,7 +97,7 @@ class InstallAndUpdateDataDirectory(DistUtilsExtra.auto.install_auto):
 
 DistUtilsExtra.auto.setup(
     name="naturalscrolling",
-    version="0.6.0",
+    version="0.7.0",
     license="GPL-3",
     author="Charalampos Emmanouilidis",
     author_email="charalampos.emmanouilidis@eumorphed.com",
