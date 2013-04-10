@@ -111,9 +111,11 @@ DistUtilsExtra.auto.setup(
                     "media/natural-scrolling-status-activated.png",
                     "media/natural-scrolling-status-not-activated.png",
                     "media/naturalscrolling.svg"]),
+                ("share/locale/cs_CZ/LC_MESSAGES", ["locales/cs_CZ/LC_MESSAGES/naturalscrolling.mo"]),
                 ("share/locale/es_ES/LC_MESSAGES", ["locales/es_ES/LC_MESSAGES/naturalscrolling.mo"]),
                 ("share/locale/fr_FR/LC_MESSAGES", ["locales/fr_FR/LC_MESSAGES/naturalscrolling.mo"]),
                 ("share/locale/it_IT/LC_MESSAGES", ["locales/it_IT/LC_MESSAGES/naturalscrolling.mo"]),
-                ("share/locale/pt_BR/LC_MESSAGES", ["locales/pt_BR/LC_MESSAGES/naturalscrolling.mo"])
+                ("share/locale/pt_BR/LC_MESSAGES", ["locales/pt_BR/LC_MESSAGES/naturalscrolling.mo"]),
+                ("share/locale/sv_SV/LC_MESSAGES", ["locales/sv_SV/LC_MESSAGES/naturalscrolling.mo"])
                 ]
 )
