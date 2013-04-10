@@ -36,3 +36,5 @@ NaturalScrolling translations are:
  - French
  - Brazilian Portuguese
  - Italian
+ - Czech
+ - Swedish
