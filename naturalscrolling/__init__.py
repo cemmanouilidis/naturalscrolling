@@ -1,7 +1,7 @@
 # -*- Mode: Python; coding: utf-8; indent-tabs-mode: nil; tab-width: 4 -*-
 ### BEGIN LICENSE
-# Copyright (C) 2011 Eumorphed UG,
-# Charalampos Emmanouilidis <ce@eumorphed.com>
+# Copyright (C) 2011 Charalampos Emmanouilidis,
+# Charalampos Emmanouilidis <chrys.emmanouilidis@gmail.com>
 #
 # This program is free software: you can redistribute it and/or modify it
 # under the terms of the GNU General Public License version 3, as published

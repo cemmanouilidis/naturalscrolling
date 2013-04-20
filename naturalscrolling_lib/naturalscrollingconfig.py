@@ -1,7 +1,7 @@
 # -*- Mode: Python; coding: utf-8; indent-tabs-mode: nil; tab-width: 4 -*-
 ### BEGIN LICENSE
-# Copyright (C) 2011 Eumorphed UG,
-# Charalampos Emmanouilidis <ce@eumorphed.com>
+# Copyright (C) 2011 Charalampos Emmanouilidis,
+# Charalampos Emmanouilidis <chrys.emmanouilidis@gmail.com>
 #
 # This program is free software: you can redistribute it and/or modify it
 # under the terms of the GNU General Public License version 3, as published
@@ -40,11 +40,12 @@ __naturalscrolling_data_directory__ = "../"
 # Where your project will look for translation catalogs
 __naturalscrolling_locale_directory__ = "../locales"
 __version__ = "VERSION"
-__website__ = "http://webiste"
+__website__ = "https://github.com/cemmanouilidis/naturalscrolling"
 
 
 class project_path_not_found(Exception):
     """Raised when we can't find the project directory."""
+
 
 def appliation_version():
     return __version__
@@ -82,6 +83,7 @@ def get_data_path():
         raise project_path_not_found
 
     return abs_data_path
+
 
 def get_locale_path():
     """Retrieve naturalscrolling locale path

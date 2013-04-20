@@ -1,8 +1,7 @@
 #!/usr/bin/env python
 # -*- Mode: Python; coding: utf-8; indent-tabs-mode: nil; tab-width: 4 -*-
 ### BEGIN LICENSE
-# Copyright (C) 2011 Eumorphed UG,
-# Charalampos Emmanouilidis <ce@eumorphed.com>
+# Charalampos Emmanouilidis <chrys.emmanouilidis@gmail.com>
 #
 # This program is free software: you can redistribute it and/or modify it
 # under the terms of the GNU General Public License version 3, as published
@@ -100,7 +99,7 @@ DistUtilsExtra.auto.setup(
     version="0.7.0",
     license="GPL-3",
     author="Charalampos Emmanouilidis",
-    author_email="charalampos.emmanouilidis@eumorphed.com",
+    author_email="chrys.emmanouilidis@gmail.com",
     description="Natural Scrolling for Linux",
     long_description=("Natural Scrolling adds a menu bar item allowing the "
                       "direction of scrolling to be toggled"),

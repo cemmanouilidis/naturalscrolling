@@ -182,9 +182,9 @@ class IndicatorMenu(gtk.Menu):
                                          "/media/naturalscrolling.svg"))
         about.set_website(appliation_website())
         about.set_website_label("%s Website" % app_name)
-        about.set_authors(["Charalampos Emmanouilidis <ce@eumorphed.com>",
+        about.set_authors(["Charalampos Emmanouilidis <chrys.emmanouilidis@mail.com>",
                            "Guillaume Hain <zedtux@zedroot.org>"])
-        about.set_copyright("Copyright © 2011 Eumorphed UG")
+        about.set_copyright("Copyright © 2011 Charalampos Emmanouilidis")
         about.set_wrap_license(True)
         about.set_license(("%s is free software; you can redistribute it "
             "and/or modify it under the terms of the GNU General "
