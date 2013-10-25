@@ -6,7 +6,7 @@ Don't move scrollbars anymore but your file.
 
 ## Install
 
-Natural Scrolling can be installed in Ubuntu __10.10__, __11.04__ and __11.10__ from its own PPA.
+Natural Scrolling can be installed in Ubuntu __11.04__, __11.10__, __12.04__, __12.10__, __13.04__, and __13.10__ from its own PPA.
 
 ````bash
 sudo add-apt-repository ppa:zedtux/naturalscrolling
