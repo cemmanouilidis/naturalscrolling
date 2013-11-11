@@ -1,8 +1,8 @@
 # Natural Scrolling for Linux
 
 Natural Scrolling is a GNOME Applet allowing you to reverse the direction of scrolling.
-You push your fingers upwards to move the page content upwards (and downwards for downwards) just like on iOS devices.
-Don't move scrollbars anymore but your file.
+Like on touch devices, the direction of your fingers matches that of the content (rather than that of the scrollbars).
+This behavior is known as _natural scrolling_ or _Australian scrolling_.
 
 ## Install
 
