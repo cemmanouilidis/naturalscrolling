@@ -38,3 +38,4 @@ NaturalScrolling translations are:
  - Italian
  - Czech
  - Swedish
+ - Dutch
