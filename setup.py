@@ -114,6 +114,7 @@ DistUtilsExtra.auto.setup(
                 ("share/locale/es_ES/LC_MESSAGES", ["locales/es_ES/LC_MESSAGES/naturalscrolling.mo"]),
                 ("share/locale/fr_FR/LC_MESSAGES", ["locales/fr_FR/LC_MESSAGES/naturalscrolling.mo"]),
                 ("share/locale/it_IT/LC_MESSAGES", ["locales/it_IT/LC_MESSAGES/naturalscrolling.mo"]),
+                ("share/locale/nl_NL/LC_MESSAGES", ["locales/nl_NL/LC_MESSAGES/naturalscrolling.mo"]),
                 ("share/locale/pt_BR/LC_MESSAGES", ["locales/pt_BR/LC_MESSAGES/naturalscrolling.mo"]),
                 ("share/locale/sv_SV/LC_MESSAGES", ["locales/sv_SV/LC_MESSAGES/naturalscrolling.mo"])
                 ]
