@@ -1,3 +1,8 @@
+# This Project needs a new maintainer.
+Please fork this repository and tell us, that you continue working on this. There are some open issues and pull requests, that could be worked upon.
+
+---
+
 # Natural Scrolling for Linux
 
 Natural Scrolling is a GNOME Applet allowing you to reverse the direction of scrolling.
